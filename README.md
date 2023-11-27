@@ -4,7 +4,7 @@ This is a solution to the [Portfolio on Alura Latam](https://www.aluracursos.com
 
 ### Preview
 
-![previw](./public/images/alura_portafolio.png)
+![previw](./public/images/portafolio.png)
 
 ## The challenge
 
