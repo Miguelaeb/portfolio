@@ -66,16 +66,16 @@ export default function Navbar() {
         <div
           className={`navbar--links--container ${
             isNavbarOpen ? "" : "hidden"
-          } bg-white w-10/12 rounded-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 lg:block lg:relative lg:top-0 lg:left-0 lg:transform-none lg:bg-transparent lg:w-auto`}
+          } bg-white w-10/12 rounded-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 xl:block xl:relative xl:top-0 xl:left-0 xl:transform-none xl:bg-transparent lg:w-1/2 xl:w-auto`}
         >
-          <ul className="flex flex-col gap-4 p-4 lg:p-0 lg:flex-row lg:space-x-8 lg:animate-none">
+          <ul className="flex flex-col gap-4 p-4 xl:p-0 xl:flex-row xl:space-x-8 xl:animate-none">
             <li>
               <a
                 className={commonLinkStyles}
                 href="#home"
               >
                 {t("navbarHome")}
-                <span className="mt-2 font-SourceSansPro md:hidden">
+                <span className="mt-2 font-SourceSansPro xl:hidden">
                   Back to home?
                 </span>
               </a>
@@ -86,7 +86,7 @@ export default function Navbar() {
                 href="#projects"
               >
                 {t("navbarProjects")}
-                <span className="mt-2 font-SourceSansPro md:hidden">
+                <span className="mt-2 font-SourceSansPro xl:hidden">
                   See what I have made
                 </span>
               </a>
@@ -97,7 +97,7 @@ export default function Navbar() {
                 href="#about"
               >
                 {t("navbarAbout")}
-                <p className="mt-2 font-SourceSansPro md:hidden">
+                <p className="mt-2 font-SourceSansPro xl:hidden">
                   Know who I am
                 </p>
               </a>
@@ -109,7 +109,7 @@ export default function Navbar() {
               >
                 {t("navbarTechnologies")}
 
-                <p className="mt-2 font-SourceSansPro md:hidden">
+                <p className="mt-2 font-SourceSansPro xl:hidden">
                   This is what I handle
                 </p>
               </a>
@@ -121,7 +121,7 @@ export default function Navbar() {
               >
                 {t("navbarEducation")}
 
-                <p className="mt-2 font-SourceSansPro md:hidden">
+                <p className="mt-2 font-SourceSansPro xl:hidden">
                   Where I get my knowledge
                 </p>
               </a>
@@ -132,7 +132,7 @@ export default function Navbar() {
                 href="#contact"
               >
                 {t("navbarContact")}
-                <p className="mt-2 font-SourceSansPro md:hidden">
+                <p className="mt-2 font-SourceSansPro xl:hidden">
                   Let&apos;s talk
                 </p>
               </a>
@@ -205,7 +205,7 @@ export default function Navbar() {
           </div>
 
           <button
-            className="lg:hidden burgerIcon"
+            className="xl:hidden burgerIcon"
             onClick={toggleMobileMenu}
           >
             <img
