@@ -76,7 +76,7 @@ export default function Navbar() {
               >
                 {t("navbarHome")}
                 <span className="mt-2 font-SourceSansPro xl:hidden">
-                  Back to home?
+                {t("navbarSubHome")}
                 </span>
               </a>
             </li>
@@ -87,7 +87,7 @@ export default function Navbar() {
               >
                 {t("navbarProjects")}
                 <span className="mt-2 font-SourceSansPro xl:hidden">
-                  See what I have made
+                {t("navbarSubProjects")}
                 </span>
               </a>
             </li>
@@ -98,7 +98,7 @@ export default function Navbar() {
               >
                 {t("navbarAbout")}
                 <p className="mt-2 font-SourceSansPro xl:hidden">
-                  Know who I am
+                {t("navbarSubAbout")}
                 </p>
               </a>
             </li>
@@ -110,7 +110,7 @@ export default function Navbar() {
                 {t("navbarTechnologies")}
 
                 <p className="mt-2 font-SourceSansPro xl:hidden">
-                  This is what I handle
+                {t("navbarSubTechnologies")}
                 </p>
               </a>
             </li>
@@ -122,7 +122,7 @@ export default function Navbar() {
                 {t("navbarEducation")}
 
                 <p className="mt-2 font-SourceSansPro xl:hidden">
-                  Where I get my knowledge
+                {t("navbarSubEducation")}
                 </p>
               </a>
             </li>
@@ -133,7 +133,7 @@ export default function Navbar() {
               >
                 {t("navbarContact")}
                 <p className="mt-2 font-SourceSansPro xl:hidden">
-                  Let&apos;s talk
+                {t("navbarSubContact")}
                 </p>
               </a>
             </li>

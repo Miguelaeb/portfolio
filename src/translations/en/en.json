@@ -8,6 +8,14 @@
   "navbarEN": "English",
   "navbarES": "Spanish",
 
+  "navbarSubHome": "Back to home?",
+  "navbarSubProjects": "See what I have done",
+  "navbarSubAbout": "Know who I am",
+  "navbarSubTechnologies": "This is what I handle",
+  "navbarSubEducation": "Where I got my knowledge",
+  "navbarSubContact": "Let's talk",
+
+
   "headerTitle": "Front-End Developer",
   "headerDescription": "I am dedicated to constructing responsive web solutions that blend sleek design with intuitive navigation.",
   "resumeButton": "Resume",

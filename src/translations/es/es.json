@@ -8,6 +8,13 @@
   "navbarEN": "Inglés",
   "navbarES": "Español",
 
+  "navbarSubHome": "Volver al inicio?",
+  "navbarSubProjects": "Mira lo que he hecho",
+  "navbarSubAbout": "Conoceme",
+  "navbarSubTechnologies": "Esto es lo que manejo",
+  "navbarSubEducation": "De aqui aprendi",
+  "navbarSubContact": "Hablemos",
+
   "headerTitle": "Desarrollador Front-End",
   "headerDescription": "Me dedico a construir soluciones web receptivas que combinan un diseño elegante con una navegación intuitiva.",
   "resumeButton": "Curriculum",
