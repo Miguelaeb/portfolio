@@ -1,0 +1,34 @@
+{
+  "navbarHome": "Inicio",
+  "navbarProjects": "Proyectos",
+  "navbarAbout": "Sobre mi",
+  "navbarTechnologies": "Tecnologias",
+  "navbarEducation": "Educación",
+  "navbarContact": "Contactame",
+  "navbarEN": "Inglés",
+  "navbarES": "Español",
+
+  "headerTitle": "Desarrollador Front-End",
+  "headerDescription": "Me dedico a construir soluciones web receptivas que combinan un diseño elegante con una navegación intuitiva.",
+  "resumeButton": "Curriculum",
+
+  "projectsTitle": "Proyectos.",
+
+  "aboutTitle": "Sobre mí.",
+  "aboutDescription1": "Soy un desarrollador front-end que actualmente reside en Santo Domingo, República Dominicana.",
+  "aboutDescription2": "Me especializo en crear aplicaciones web e interfaces de usuario que no solo son visualmente atractivas sino también fáciles de usar y navegar. Mi experiencia incluye HTML, CSS, JavaScript, frameworks como Tailwind CSS, Bootstrap y Material UI, y bibliotecas como React JS. Me apasiona crear diseños receptivos y accesibles que funcionen sin problemas en diferentes dispositivos y navegadores.",
+
+  "technologiesTitle": "Tecnologias.",
+  "technologiesTools": "Herramientas",
+
+  "educationTitle": "Educación.",
+
+  "contactTitle": "Contactame.",
+  "contactNameLabel": "Nombre:",
+  "contactEmailLabel": "Email:",
+  "contactSubjectLabel": "Asunto:",
+  "contactMessageLabel": "Mensaje:",
+  "submitButton": "Enviar",
+
+  "footerRights": "Todos los derechos reservados"
+}
