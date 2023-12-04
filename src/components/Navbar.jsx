@@ -193,13 +193,13 @@ export default function Navbar() {
                     className="py-2 cursor-pointer hover:text-primaryRed font-Poppins"
                     onClick={() => changeLanguage("en")}
                   >
-                    {t("navbarEN")}
+                    English
                   </div>
                   <div
                     className="py-2 cursor-pointer hover:text-primaryRed font-Poppins"
                     onClick={() => changeLanguage("es")}
                   >
-                    {t("navbarES")}
+                    Español
                   </div>
                 </div>
               )}
