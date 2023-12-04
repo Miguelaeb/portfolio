@@ -73,10 +73,11 @@ export default function Navbar() {
               <a
                 className={commonLinkStyles}
                 href="#home"
+                onClick={toggleMobileMenu}
               >
                 {t("navbarHome")}
                 <span className="mt-2 font-SourceSansPro xl:hidden">
-                {t("navbarSubHome")}
+                  {t("navbarSubHome")}
                 </span>
               </a>
             </li>
@@ -84,10 +85,11 @@ export default function Navbar() {
               <a
                 className={commonLinkStyles}
                 href="#projects"
+                onClick={toggleMobileMenu}
               >
                 {t("navbarProjects")}
                 <span className="mt-2 font-SourceSansPro xl:hidden">
-                {t("navbarSubProjects")}
+                  {t("navbarSubProjects")}
                 </span>
               </a>
             </li>
@@ -95,10 +97,11 @@ export default function Navbar() {
               <a
                 className={commonLinkStyles}
                 href="#about"
+                onClick={toggleMobileMenu}
               >
                 {t("navbarAbout")}
                 <p className="mt-2 font-SourceSansPro xl:hidden">
-                {t("navbarSubAbout")}
+                  {t("navbarSubAbout")}
                 </p>
               </a>
             </li>
@@ -106,11 +109,12 @@ export default function Navbar() {
               <a
                 className={commonLinkStyles}
                 href="#technologies"
+                onClick={toggleMobileMenu}
               >
                 {t("navbarTechnologies")}
 
                 <p className="mt-2 font-SourceSansPro xl:hidden">
-                {t("navbarSubTechnologies")}
+                  {t("navbarSubTechnologies")}
                 </p>
               </a>
             </li>
@@ -118,11 +122,12 @@ export default function Navbar() {
               <a
                 className={commonLinkStyles}
                 href="#education"
+                onClick={toggleMobileMenu}
               >
                 {t("navbarEducation")}
 
                 <p className="mt-2 font-SourceSansPro xl:hidden">
-                {t("navbarSubEducation")}
+                  {t("navbarSubEducation")}
                 </p>
               </a>
             </li>
@@ -130,10 +135,11 @@ export default function Navbar() {
               <a
                 className={commonLinkStyles}
                 href="#contact"
+                onClick={toggleMobileMenu}
               >
                 {t("navbarContact")}
                 <p className="mt-2 font-SourceSansPro xl:hidden">
-                {t("navbarSubContact")}
+                  {t("navbarSubContact")}
                 </p>
               </a>
             </li>
