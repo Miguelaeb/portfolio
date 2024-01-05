@@ -76,7 +76,7 @@ export default function Projects() {
   const { t } = useTranslation();
 
   return (
-    <section
+    <div
       className="mt-20"
       id="projects"
     >
@@ -96,6 +96,6 @@ export default function Projects() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

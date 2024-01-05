@@ -22,6 +22,10 @@ export default function Navbar() {
     setisNavbarOpen(!isNavbarOpen);
   };
 
+  const closeMenu = () => {
+    setisNavbarOpen(false);
+  };
+
   const closeNavbarOnOutsideClick = useCallback(
     (event) => {
       if (
@@ -73,7 +77,7 @@ export default function Navbar() {
               <a
                 className={commonLinkStyles}
                 href="#home"
-                onClick={toggleMobileMenu}
+                onClick={closeMenu}
               >
                 {t("navbarHome")}
                 <span className="mt-2 font-SourceSansPro xl:hidden">
@@ -85,7 +89,7 @@ export default function Navbar() {
               <a
                 className={commonLinkStyles}
                 href="#projects"
-                onClick={toggleMobileMenu}
+                onClick={closeMenu}
               >
                 {t("navbarProjects")}
                 <span className="mt-2 font-SourceSansPro xl:hidden">
@@ -97,7 +101,7 @@ export default function Navbar() {
               <a
                 className={commonLinkStyles}
                 href="#about"
-                onClick={toggleMobileMenu}
+                onClick={closeMenu}
               >
                 {t("navbarAbout")}
                 <p className="mt-2 font-SourceSansPro xl:hidden">
@@ -109,7 +113,7 @@ export default function Navbar() {
               <a
                 className={commonLinkStyles}
                 href="#technologies"
-                onClick={toggleMobileMenu}
+                onClick={closeMenu}
               >
                 {t("navbarTechnologies")}
 
@@ -122,7 +126,7 @@ export default function Navbar() {
               <a
                 className={commonLinkStyles}
                 href="#education"
-                onClick={toggleMobileMenu}
+                onClick={closeMenu}
               >
                 {t("navbarEducation")}
 
@@ -135,7 +139,7 @@ export default function Navbar() {
               <a
                 className={commonLinkStyles}
                 href="#contact"
-                onClick={toggleMobileMenu}
+                onClick={closeMenu}
               >
                 {t("navbarContact")}
                 <p className="mt-2 font-SourceSansPro xl:hidden">
