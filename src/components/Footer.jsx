@@ -1,13 +1,20 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 
-export default function Footer() {
+export default function Footer({ isNavbarOpen }) {
   const [year] = useState(new Date().getFullYear());
   const { t } = useTranslation();
 
+  Footer.propTypes = {
+    isNavbarOpen: PropTypes.func.isRequired,
+  };
+
   return (
     <footer
-      className="lg:max-w-[60rem] xl:max-w-[80rem] 2xl:max-w-[100rem] lg:mx-auto"
+      className={` ${
+        isNavbarOpen ? "blur-sm" : ""
+      } lg:mx-auto lg:w-[60rem] xl:w-[80rem] 2xl:w-[100rem] `}
       id="footer"
     >
       <div className="line w-full h-[2px] bg-portfolio-primary-color-grey mt-2"></div>
@@ -54,7 +61,7 @@ export default function Footer() {
           >
             Miguel Evangelista™{" "}
           </a>
-          {t('footerRights')}
+          {t("footerRights")}
         </p>
       </div>
     </footer>
