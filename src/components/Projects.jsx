@@ -28,6 +28,13 @@ const projects = [
     githubLink: "https://github.com/Miguelaeb/portfolio",
     liveLink: "https://www.migueldev.com/",
   },
+
+  {
+    title: "Nubes de algodon",
+    image: "./images/infante_project.png",
+    githubLink: "https://github.com/FedeSabi/proyecto-Jardin-de-Infantes",
+    liveLink: "https://proyecto-jardin-de-infante.vercel.app/",
+  },
 ];
 
 // ProjectCard component
