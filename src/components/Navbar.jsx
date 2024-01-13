@@ -1,10 +1,18 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 
-export default function Navbar() {
+const Navbar = ({ setIsNavbarOpen, setIsMenuClosing }) => {
   const [isNavbarOpen, setisNavbarOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isScrolled, setScrolled] = useState(false);
   const navbarRef = useRef(null);
+
+  const toggleMobileMenu = () => {
+    setisNavbarOpen(!isNavbarOpen);
+    setIsNavbarOpen(!isNavbarOpen);
+    setIsMenuClosing(true);
+  };
 
   const { i18n } = useTranslation();
   const { t } = useTranslation();
@@ -18,12 +26,10 @@ export default function Navbar() {
     setDropdownOpen(!isDropdownOpen);
   };
 
-  const toggleMobileMenu = () => {
-    setisNavbarOpen(!isNavbarOpen);
-  };
-
   const closeMenu = () => {
     setisNavbarOpen(false);
+    setIsNavbarOpen(false);
+    setIsMenuClosing(true);
   };
 
   const closeNavbarOnOutsideClick = useCallback(
@@ -34,17 +40,27 @@ export default function Navbar() {
         !navbarRef.current.contains(event.target)
       ) {
         setisNavbarOpen(false);
+        setIsNavbarOpen(false);
+        setIsMenuClosing(true);
       }
     },
-    [isNavbarOpen]
+    [isNavbarOpen, setIsNavbarOpen, setIsMenuClosing]
   );
 
   useEffect(() => {
-    const handleOutsideClick = (event) => closeNavbarOnOutsideClick(event);
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const shouldCollapseNavbar = scrollPosition > 0;
+      setScrolled(shouldCollapseNavbar);
+    };
 
+    window.addEventListener("scroll", handleScroll);
+
+    const handleOutsideClick = (event) => closeNavbarOnOutsideClick(event);
     document.addEventListener("click", handleOutsideClick);
 
     return () => {
+      window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleOutsideClick);
     };
   }, [closeNavbarOnOutsideClick]);
@@ -52,17 +68,28 @@ export default function Navbar() {
   const commonLinkStyles =
     "font-semibold transition duration-200 ease-in-out font-Poppins hover:text-primaryRed hover:scale-110 flex flex-col py-2 pl-3 pr-4 rounded-md bg-background-color";
 
+  Navbar.propTypes = {
+    setIsNavbarOpen: PropTypes.func.isRequired,
+    setIsMenuClosing: PropTypes.func.isRequired,
+  };
+
   return (
+    <div
+    className={`fixed top-0 left-0 z-50 py-4 px-8 xl:left-1/2 xl:-translate-x-1/2 ${
+      isScrolled
+        ? "w-full rounded-none shadow-md bg-[#ECECEE]"
+        : " w-full lg:rounded-xl lg:px-4"
+    }`}
+  >
     <nav
       className="relative lg:max-w-[60rem] xl:max-w-[80rem] 2xl:max-w-[100rem] lg:mx-auto"
       ref={navbarRef}
-      id="home"
     >
       <div className="flex items-center justify-between">
         <div className="transition duration-200 ease-in-out hover:scale-110">
           <img
-            className="w-[40px]"
-            src="/images/Logo.svg"
+            className={` ${isNavbarOpen ? "blur-sm" : ""} w-[35px] `}
+            src="/images/logo3.svg"
             alt="Logo"
           />
         </div>
@@ -150,7 +177,7 @@ export default function Navbar() {
           </ul>
         </div>
 
-        <div className="flex gap-4">
+        <div className={` ${isNavbarOpen ? "blur-sm" : ""} flex gap-4 `}>
           <div className="flex items-center gap-4 lg:gap-[30px]">
             <div className="flex transition duration-200 ease-in-out cursor-pointer translatetor__container hover:fill-primaryRed"></div>
 
@@ -160,7 +187,7 @@ export default function Navbar() {
                 onClick={toggleDropdown}
               >
                 <span
-                  className={`mr-2 ${
+                  className={` ${
                     isDropdownOpen
                       ? "rotate-180 transition duration-300"
                       : "transition duration-300"
@@ -227,5 +254,8 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
+  </div>
   );
-}
+};
+
+export default Navbar;

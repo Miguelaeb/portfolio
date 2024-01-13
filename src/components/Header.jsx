@@ -18,7 +18,10 @@ export default function Header() {
   const avatarClass = classNames("avatar-1-img w-full", { hovered: isHovered });
 
   return (
-    <header className="relative max-w-2xl mx-auto mt-20 text-center transition duration-100 ease-in-out lg:flex lg:flex-row-reverse lg:justify-between lg:max-w-3xl xl:max-w-6xl">
+    <header
+      className="relative mt-[150px] lg:mt-[220px] text-center transition duration-100 ease-in-out lg:flex lg:flex-row-reverse lg:justify-between"
+      id="home"
+    >
       <div className="max-w-[150px] mx-auto xl:max-w-[200px]">
         <img
           src={avatarSrc}
