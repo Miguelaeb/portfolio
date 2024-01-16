@@ -40,11 +40,17 @@ const projects = [
 // ProjectCard component
 const ProjectCard = ({ title, image, githubLink, liveLink }) => (
   <div>
-    <img
-      className="object-center w-full mb-4 transition duration-300 ease-in-out shadow-md lg:h-48 md:h-36 rounded-xl hover:scale-110"
-      src={image}
-      alt={title}
-    />
+    <a
+      href={liveLink}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <img
+        className="object-center w-full mb-4 transition duration-300 ease-in-out shadow-md cursor-pointer lg:h-48 md:h-36 rounded-xl hover:scale-110"
+        src={image}
+        alt={title}
+      />
+    </a>
 
     <div className="flex justify-between">
       <p className="text-lg font-semibold font-SourceSansPro dark:text-portfolio-background-color">
@@ -58,13 +64,6 @@ const ProjectCard = ({ title, image, githubLink, liveLink }) => (
           rel="noreferrer"
         >
           <i className="text-xl fa-brands fa-github hover:text-portfolio-primary-color-red hover:text-primaryRed"></i>
-        </a>
-        <a
-          href={liveLink}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <i className="text-xl fa-sharp fa-solid fa-arrow-up-right-from-square hover:text-primaryRed"></i>
         </a>
       </div>
     </div>
