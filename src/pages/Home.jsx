@@ -22,7 +22,7 @@ const Home = ({ isNavbarOpen }) => {
     <I18nextProvider i18n={i18n}>
       <main
         className={`relative max-w-2xl mx-auto text-center mb-14 lg:max-w-3xl xl:max-w-6xl ${
-          isNavbarOpen ? "blur-sm" : ""
+          isNavbarOpen ? "blur-sm xl:blur-none" : ""
         }`}
       >
         <Header />

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 
-const Navbar = ({ setIsNavbarOpen, setIsMenuClosing }) => {
+export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
   const [isNavbarOpen, setisNavbarOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isScrolled, setScrolled] = useState(false);
@@ -66,7 +66,7 @@ const Navbar = ({ setIsNavbarOpen, setIsMenuClosing }) => {
   }, [closeNavbarOnOutsideClick]);
 
   const commonLinkStyles =
-    "font-semibold transition duration-200 ease-in-out font-Poppins hover:text-primaryRed hover:scale-110 flex flex-col py-2 pl-3 pr-4 rounded-md bg-background-color";
+    "font-semibold transition duration-200 ease-in-out font-Poppins hover:text-primaryRed flex flex-col py-2 pl-3 pr-4 rounded-md bg-background-color";
 
   Navbar.propTypes = {
     setIsNavbarOpen: PropTypes.func.isRequired,
@@ -75,187 +75,196 @@ const Navbar = ({ setIsNavbarOpen, setIsMenuClosing }) => {
 
   return (
     <div
-    className={`fixed top-0 left-0 z-50 py-4 px-8 xl:left-1/2 xl:-translate-x-1/2 ${
-      isScrolled
-        ? "w-full rounded-none shadow-md bg-[#ECECEE]"
-        : " w-full lg:rounded-xl lg:px-4"
-    }`}
-  >
-    <nav
-      className="relative lg:max-w-[60rem] xl:max-w-[80rem] 2xl:max-w-[100rem] lg:mx-auto"
-      ref={navbarRef}
+      className={`fixed top-0 left-0 z-50 py-4 px-8 xl:left-1/2 xl:-translate-x-1/2 ${
+        isScrolled
+          ? "w-full rounded-none shadow-md bg-[#ECECEE]"
+          : " w-full lg:rounded-xl lg:px-4"
+      }`}
     >
-      <div className="flex items-center justify-between">
-        <div className="transition duration-200 ease-in-out hover:scale-110">
-          <img
-            className={` ${isNavbarOpen ? "blur-sm" : ""} w-[35px] `}
-            src="/images/logo3.svg"
-            alt="Logo"
-          />
-        </div>
-
-        <div
-          className={`navbar--links--container ${
-            isNavbarOpen ? "" : "hidden"
-          } bg-white w-10/12 rounded-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 xl:block xl:relative xl:top-0 xl:left-0 xl:transform-none xl:bg-transparent lg:w-1/2 xl:w-auto`}
-        >
-          <ul className="flex flex-col gap-4 p-4 xl:p-0 xl:flex-row xl:space-x-8 xl:animate-none">
-            <li>
-              <a
-                className={commonLinkStyles}
-                href="#home"
-                onClick={closeMenu}
-              >
-                {t("navbarHome")}
-                <span className="mt-2 font-SourceSansPro xl:hidden">
-                  {t("navbarSubHome")}
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                className={commonLinkStyles}
-                href="#projects"
-                onClick={closeMenu}
-              >
-                {t("navbarProjects")}
-                <span className="mt-2 font-SourceSansPro xl:hidden">
-                  {t("navbarSubProjects")}
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                className={commonLinkStyles}
-                href="#about"
-                onClick={closeMenu}
-              >
-                {t("navbarAbout")}
-                <p className="mt-2 font-SourceSansPro xl:hidden">
-                  {t("navbarSubAbout")}
-                </p>
-              </a>
-            </li>
-            <li>
-              <a
-                className={commonLinkStyles}
-                href="#technologies"
-                onClick={closeMenu}
-              >
-                {t("navbarTechnologies")}
-
-                <p className="mt-2 font-SourceSansPro xl:hidden">
-                  {t("navbarSubTechnologies")}
-                </p>
-              </a>
-            </li>
-            <li>
-              <a
-                className={commonLinkStyles}
-                href="#education"
-                onClick={closeMenu}
-              >
-                {t("navbarEducation")}
-
-                <p className="mt-2 font-SourceSansPro xl:hidden">
-                  {t("navbarSubEducation")}
-                </p>
-              </a>
-            </li>
-            <li>
-              <a
-                className={commonLinkStyles}
-                href="#contact"
-                onClick={closeMenu}
-              >
-                {t("navbarContact")}
-                <p className="mt-2 font-SourceSansPro xl:hidden">
-                  {t("navbarSubContact")}
-                </p>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <div className={` ${isNavbarOpen ? "blur-sm" : ""} flex gap-4 `}>
-          <div className="flex items-center gap-4 lg:gap-[30px]">
-            <div className="flex transition duration-200 ease-in-out cursor-pointer translatetor__container hover:fill-primaryRed"></div>
-
-            <div className="relative inline-block">
-              <div
-                className="flex flex-row-reverse cursor-pointer hover:border-gray-500"
-                onClick={toggleDropdown}
-              >
-                <span
-                  className={` ${
-                    isDropdownOpen
-                      ? "rotate-180 transition duration-300"
-                      : "transition duration-300"
-                  }`}
-                >
-                  <svg
-                    width="16"
-                    height="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    data-name="Layer 1"
-                    viewBox="0 0 32 32"
-                    id="down-arrow"
-                  >
-                    <path d="M16 22a2 2 0 0 1-1.41-.59l-10-10a2 2 0 0 1 2.82-2.82L16 17.17l8.59-8.58a2 2 0 0 1 2.82 2.82l-10 10A2 2 0 0 1 16 22Z"></path>
-                  </svg>
-                </span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  id="translate"
-                >
-                  <path
-                    fill="none"
-                    d="M0 0h24v24H0V0z"
-                  ></path>
-                  <path d="M12.65 15.67c.14-.36.05-.77-.23-1.05l-2.09-2.06.03-.03c1.74-1.94 2.98-4.17 3.71-6.53h1.94c.54 0 .99-.45.99-.99v-.02c0-.54-.45-.99-.99-.99H10V3c0-.55-.45-1-1-1s-1 .45-1 1v1H1.99c-.54 0-.99.45-.99.99 0 .55.45.99.99.99h10.18C11.5 7.92 10.44 9.75 9 11.35c-.81-.89-1.49-1.86-2.06-2.88-.16-.29-.45-.47-.78-.47-.69 0-1.13.75-.79 1.35.63 1.13 1.4 2.21 2.3 3.21L3.3 16.87c-.4.39-.4 1.03 0 1.42.39.39 1.02.39 1.42 0L9 14l2.02 2.02c.51.51 1.38.32 1.63-.35zM17.5 10c-.6 0-1.14.37-1.35.94l-3.67 9.8c-.24.61.22 1.26.87 1.26.39 0 .74-.24.88-.61l.89-2.39h4.75l.9 2.39c.14.36.49.61.88.61.65 0 1.11-.65.88-1.26l-3.67-9.8c-.22-.57-.76-.94-1.36-.94zm-1.62 7l1.62-4.33L19.12 17h-3.24z"></path>
-                </svg>
-              </div>
-              {isDropdownOpen && (
-                <div className="absolute z-50 p-4 mt-2 bg-white border rounded-md shadow">
-                  <div
-                    className="py-2 cursor-pointer hover:text-primaryRed font-Poppins"
-                    onClick={() => changeLanguage("en")}
-                  >
-                    English
-                  </div>
-                  <div
-                    className="py-2 cursor-pointer hover:text-primaryRed font-Poppins"
-                    onClick={() => changeLanguage("es")}
-                  >
-                    Español
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* <div className="transition duration-200 ease-in-out hover:scale-110 hover:text-primaryRed">
-              <i className="text-[22px] cursor-pointer fa-solid fa-moon"></i>
-            </div> */}
+      <nav
+        className="relative lg:max-w-[60rem] xl:max-w-[80rem] 2xl:max-w-[100rem] lg:mx-auto"
+        // ref={navbarRef}
+      >
+        <div className="flex items-center justify-between">
+          <div className="transition duration-200 ease-in-out hover:scale-110">
+            <img
+              className={` ${
+                isNavbarOpen ? "blur-sm xl:blur-none" : ""
+              } w-[35px] `}
+              src="/images/logo3.svg"
+              alt="Logo"
+            />
           </div>
 
-          <button
-            className="xl:hidden burgerIcon"
-            onClick={toggleMobileMenu}
+          <div
+            className={`navbar--links--container ${
+              isNavbarOpen ? "" : "hidden"
+            }   fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 xl:block xl:relative xl:top-0 xl:left-0 xl:transform-none w-full`}
           >
-            <img
-              className="w-[40px]"
-              src="/images/Burger Icon.svg"
-              alt="Burger Icon"
-            />
-          </button>
-        </div>
-      </div>
-    </nav>
-  </div>
-  );
-};
+            <div
+              onClick={closeMenu}
+              className="flex items-center justify-center w-full h-screen xl:w-auto xl:h-auto linksContainer"
+            >
+              <ul className="flex flex-col w-10/12 gap-4 p-4 bg-white rounded-md xl:p-0 xl:flex-row xl:space-x-8 xl:animate-none xl:bg-transparent lg:w-1/2 xl:w-auto">
+                <li>
+                  <a
+                    className={commonLinkStyles}
+                    href="#home"
+                    onClick={closeMenu}
+                  >
+                    {t("navbarHome")}
+                    <span className="mt-2 font-SourceSansPro xl:hidden">
+                      {t("navbarSubHome")}
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className={commonLinkStyles}
+                    href="#projects"
+                    onClick={closeMenu}
+                  >
+                    {t("navbarProjects")}
+                    <span className="mt-2 font-SourceSansPro xl:hidden">
+                      {t("navbarSubProjects")}
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className={commonLinkStyles}
+                    href="#about"
+                    onClick={closeMenu}
+                  >
+                    {t("navbarAbout")}
+                    <p className="mt-2 font-SourceSansPro xl:hidden">
+                      {t("navbarSubAbout")}
+                    </p>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className={commonLinkStyles}
+                    href="#technologies"
+                    onClick={closeMenu}
+                  >
+                    {t("navbarTechnologies")}
 
-export default Navbar;
+                    <p className="mt-2 font-SourceSansPro xl:hidden">
+                      {t("navbarSubTechnologies")}
+                    </p>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className={commonLinkStyles}
+                    href="#education"
+                    onClick={closeMenu}
+                  >
+                    {t("navbarEducation")}
+
+                    <p className="mt-2 font-SourceSansPro xl:hidden">
+                      {t("navbarSubEducation")}
+                    </p>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className={commonLinkStyles}
+                    href="#contact"
+                    onClick={closeMenu}
+                  >
+                    {t("navbarContact")}
+                    <p className="mt-2 font-SourceSansPro xl:hidden">
+                      {t("navbarSubContact")}
+                    </p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            className={` ${
+              isNavbarOpen ? "blur-sm xl:blur-none" : ""
+            } flex gap-4 `}
+          >
+            <div className="flex items-center gap-4 lg:gap-[30px]">
+              <div className="flex transition duration-200 ease-in-out cursor-pointer translatetor__container hover:fill-primaryRed"></div>
+
+              <div className="relative inline-block">
+                <div
+                  className="flex flex-row-reverse cursor-pointer hover:border-gray-500"
+                  onClick={toggleDropdown}
+                >
+                  <span
+                    className={` ${
+                      isDropdownOpen
+                        ? "rotate-180 transition duration-300"
+                        : "transition duration-300"
+                    }`}
+                  >
+                    <svg
+                      width="16"
+                      height="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      data-name="Layer 1"
+                      viewBox="0 0 32 32"
+                      id="down-arrow"
+                    >
+                      <path d="M16 22a2 2 0 0 1-1.41-.59l-10-10a2 2 0 0 1 2.82-2.82L16 17.17l8.59-8.58a2 2 0 0 1 2.82 2.82l-10 10A2 2 0 0 1 16 22Z"></path>
+                    </svg>
+                  </span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    id="translate"
+                  >
+                    <path
+                      fill="none"
+                      d="M0 0h24v24H0V0z"
+                    ></path>
+                    <path d="M12.65 15.67c.14-.36.05-.77-.23-1.05l-2.09-2.06.03-.03c1.74-1.94 2.98-4.17 3.71-6.53h1.94c.54 0 .99-.45.99-.99v-.02c0-.54-.45-.99-.99-.99H10V3c0-.55-.45-1-1-1s-1 .45-1 1v1H1.99c-.54 0-.99.45-.99.99 0 .55.45.99.99.99h10.18C11.5 7.92 10.44 9.75 9 11.35c-.81-.89-1.49-1.86-2.06-2.88-.16-.29-.45-.47-.78-.47-.69 0-1.13.75-.79 1.35.63 1.13 1.4 2.21 2.3 3.21L3.3 16.87c-.4.39-.4 1.03 0 1.42.39.39 1.02.39 1.42 0L9 14l2.02 2.02c.51.51 1.38.32 1.63-.35zM17.5 10c-.6 0-1.14.37-1.35.94l-3.67 9.8c-.24.61.22 1.26.87 1.26.39 0 .74-.24.88-.61l.89-2.39h4.75l.9 2.39c.14.36.49.61.88.61.65 0 1.11-.65.88-1.26l-3.67-9.8c-.22-.57-.76-.94-1.36-.94zm-1.62 7l1.62-4.33L19.12 17h-3.24z"></path>
+                  </svg>
+                </div>
+                {isDropdownOpen && (
+                  <div className="absolute z-50 p-4 mt-2 bg-white border rounded-md shadow">
+                    <div
+                      className="py-2 cursor-pointer hover:text-primaryRed font-Poppins"
+                      onClick={() => changeLanguage("en")}
+                    >
+                      English
+                    </div>
+                    <div
+                      className="py-2 cursor-pointer hover:text-primaryRed font-Poppins"
+                      onClick={() => changeLanguage("es")}
+                    >
+                      Español
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* <div className="transition duration-200 ease-in-out hover:scale-110 hover:text-primaryRed">
+              <i className="text-[22px] cursor-pointer fa-solid fa-moon"></i>
+            </div> */}
+            </div>
+
+            <button
+              className="xl:hidden burgerIcon"
+              onClick={toggleMobileMenu}
+            >
+              <img
+                className="w-[40px]"
+                src="/images/Burger Icon.svg"
+                alt="Burger Icon"
+              />
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  );
+}
