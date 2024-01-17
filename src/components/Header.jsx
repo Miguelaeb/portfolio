@@ -1,8 +1,10 @@
 import { useState } from "react";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
 
-const PDF_URL = "./PDF/Miguel Evangelista Front end developer.pdf";
+const PDF_URL_EN = "./PDF/en/Miguel Evangelista Front end developer.pdf";
+const PDF_URL_ES = "./PDF/es/Miguel Evangelista desarrollador Front end.pdf";
 
 export default function Header() {
   const [isHovered, setIsHovered] = useState(false);
@@ -10,12 +12,17 @@ export default function Header() {
 
   const handleMouseOver = () => setIsHovered(true);
   const handleMouseOut = () => setIsHovered(false);
+
+  // Obtiene la URL correcta del PDF según el idioma actual
+  const PDF_URL = i18n.language === 'en' ? PDF_URL_EN : PDF_URL_ES;
+
   const handleDownloadClick = () => window.open(PDF_URL, "_blank");
 
   const avatarSrc = isHovered
     ? "/images/hover-avatar.png"
     : "/images/avatar1.png";
   const avatarClass = classNames("avatar-1-img w-full", { hovered: isHovered });
+
 
   return (
     <header
