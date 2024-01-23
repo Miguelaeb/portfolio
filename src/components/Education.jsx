@@ -64,18 +64,13 @@ export default function Education() {
   const { t } = useTranslation();
 
   return (
-    <section
-      className="mt-20"
-      id="education"
-    >
-      <h2 className="text-2xl font-semibold font-Poppins lg:text-2xl xl:text-3xl dark:text-portfolio-background-color">
-        {t("educationTitle")}
-      </h2>
+    <section className="mt-20">
+      <h2>{t("educationTitle")}</h2>
 
       <div className="line w-full h-[2px] bg-primaryGrey mt-2"></div>
 
       <div className="relative items-center w-full mt-14">
-        <div className="grid w-full grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid w-full grid-cols-1 gap-12 dark:text-white md:grid-cols-2 xl:grid-cols-3">
           {educationData.map((edu, index) => (
             <EducationItem
               key={index}
@@ -84,6 +79,7 @@ export default function Education() {
           ))}
         </div>
       </div>
+      <div id="contact"></div>
     </section>
   );
 }

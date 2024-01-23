@@ -53,7 +53,7 @@ const ProjectCard = ({ title, image, githubLink, liveLink }) => (
     </a>
 
     <div className="flex justify-between">
-      <p className="text-lg font-semibold font-SourceSansPro dark:text-portfolio-background-color">
+      <p className="text-lg font-semibold font-SourceSansPro dark:text-portfolio-background-color dark:text-white">
         {title}
       </p>
 
@@ -63,7 +63,7 @@ const ProjectCard = ({ title, image, githubLink, liveLink }) => (
           target="_blank"
           rel="noreferrer"
         >
-          <i className="text-xl fa-brands fa-github hover:text-portfolio-primary-color-red hover:text-primaryRed"></i>
+          <i className="text-xl fa-brands fa-github hover:text-portfolio-primary-color-red hover:text-primaryRed dark:text-white dark:hover:text-[#3B82F6]"></i>
         </a>
       </div>
     </div>
@@ -82,11 +82,8 @@ export default function Projects() {
   const { t } = useTranslation();
 
   return (
-    <div
-      className="mt-20"
-      id="projects"
-    >
-      <h2 className="text-2xl font-semibold font-Poppins lg:text-2xl xl:text-3xl dark:text-portfolio-background-color">
+    <section className="mt-20">
+      <h2>
         {t("projectsTitle")}
       </h2>
 
@@ -102,6 +99,8 @@ export default function Projects() {
           ))}
         </div>
       </div>
-    </div>
+
+      <div id="about"></div>
+    </section>
   );
 }

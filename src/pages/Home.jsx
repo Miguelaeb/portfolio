@@ -9,7 +9,7 @@ import Education from "../components/Education";
 import Contact from "../components/Contact";
 import PropTypes from "prop-types";
 
-const Home = ({ isNavbarOpen }) => {
+function Home({ isNavbarOpen }) {
   useEffect(() => {
   }, [isNavbarOpen]);
 
@@ -33,6 +33,6 @@ const Home = ({ isNavbarOpen }) => {
       </main>
     </I18nextProvider>
   );
-};
+}
 
 export default Home;

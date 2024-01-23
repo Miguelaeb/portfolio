@@ -4,6 +4,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h2 {
+    @apply text-2xl font-semibold font-Poppins lg:text-2xl xl:text-3xl dark:text-white;
+  }
+}
+
+@layer components {
+  .headerIcon {
+    @apply text-2xl hover:text-primaryRed transition duration-200 ease-in-out dark:text-white dark:hover:text-[#3B82F6];
+  }
+
+  .footerIcon {
+    @apply text-xl hover:text-primaryRed dark:text-white dark:hover:text-[#3B82F6];
+  }
+
+  .navLink {
+    @apply font-semibold transition duration-200 ease-in-out font-Poppins hover:text-primaryRed flex flex-col py-2 pl-3 pr-4 rounded-md bg-background-color xl:bg-transparent dark:bg-white xl:dark:bg-transparent xl:dark:text-white dark:hover:text-[#3B82F6];
+  }
+}
+
 .fadeIn {
   animation-name: fadeIn;
   animation-duration: 3s;
