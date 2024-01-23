@@ -6,6 +6,7 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
   const [isNavbarOpen, setisNavbarOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [isScrolled, setScrolled] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const navbarRef = useRef(null);
 
   const toggleMobileMenu = () => {
@@ -30,6 +31,14 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
     setisNavbarOpen(false);
     setIsNavbarOpen(false);
     setIsMenuClosing(true);
+  };
+
+  const toggleDarkMode = () => {
+    // Toggle the state of isDarkMode
+    setIsDarkMode(!isDarkMode);
+
+    // Toggle the 'dark' class on the HTML body element
+    document.body.classList.toggle("dark");
   };
 
   const closeNavbarOnOutsideClick = useCallback(
@@ -65,9 +74,6 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
     };
   }, [closeNavbarOnOutsideClick]);
 
-  const commonLinkStyles =
-    "font-semibold transition duration-200 ease-in-out font-Poppins hover:text-primaryRed flex flex-col py-2 pl-3 pr-4 rounded-md bg-background-color";
-
   Navbar.propTypes = {
     setIsNavbarOpen: PropTypes.func.isRequired,
     setIsMenuClosing: PropTypes.func.isRequired,
@@ -77,8 +83,8 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
     <div
       className={`fixed top-0 left-0 z-50 py-4 px-8 xl:left-1/2 xl:-translate-x-1/2 ${
         isScrolled
-          ? "w-full rounded-none shadow-md bg-[#ECECEE]"
-          : " w-full lg:rounded-xl lg:px-4"
+          ? "w-full rounded-none shadow-md bg-[#ECECEE] dark:bg-current"
+          : "w-full lg:rounded-xl "
       }`}
     >
       <nav
@@ -87,13 +93,25 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
       >
         <div className="flex items-center justify-between">
           <div className="transition duration-200 ease-in-out hover:scale-110">
-            <img
-              className={` ${
+            <svg
+              className={` w-[35px] dark:fill-white ${
                 isNavbarOpen ? "blur-sm xl:blur-none" : ""
-              } w-[35px] `}
-              src="/images/logo3.svg"
-              alt="Logo"
-            />
+              }`}
+              viewBox="0 0 56 70"
+              fill="current"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M46 68L19 19L28 2L55 51L46 68Z"
+                fill="current"
+                stroke="current"
+              />
+              <path
+                d="M16.5 24L1 53.5L20 51.5L26 41L16.5 24Z"
+                fill="current"
+                stroke="current"
+              />
+            </svg>
           </div>
 
           <div
@@ -105,10 +123,10 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
               onClick={closeMenu}
               className="flex items-center justify-center w-full h-screen xl:w-auto xl:h-auto linksContainer"
             >
-              <ul className="flex flex-col w-10/12 gap-4 p-4 bg-white rounded-md xl:p-0 xl:flex-row xl:space-x-8 xl:animate-none xl:bg-transparent lg:w-1/2 xl:w-auto">
+              <ul className="flex flex-col w-10/12 gap-4 p-4 bg-white rounded-md xl:p-0 xl:flex-row xl:space-x-8 xl:animate-none xl:bg-transparent lg:w-1/2 xl:w-auto dark:bg-black">
                 <li>
                   <a
-                    className={commonLinkStyles}
+                    className="navLink"
                     href="#home"
                     onClick={closeMenu}
                   >
@@ -120,7 +138,7 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
                 </li>
                 <li>
                   <a
-                    className={commonLinkStyles}
+                    className="navLink"
                     href="#projects"
                     onClick={closeMenu}
                   >
@@ -132,7 +150,7 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
                 </li>
                 <li>
                   <a
-                    className={commonLinkStyles}
+                    className="navLink"
                     href="#about"
                     onClick={closeMenu}
                   >
@@ -144,7 +162,7 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
                 </li>
                 <li>
                   <a
-                    className={commonLinkStyles}
+                    className="navLink"
                     href="#technologies"
                     onClick={closeMenu}
                   >
@@ -157,7 +175,7 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
                 </li>
                 <li>
                   <a
-                    className={commonLinkStyles}
+                    className="navLink"
                     href="#education"
                     onClick={closeMenu}
                   >
@@ -170,7 +188,7 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
                 </li>
                 <li>
                   <a
-                    className={commonLinkStyles}
+                    className="navLink"
                     href="#contact"
                     onClick={closeMenu}
                   >
@@ -205,6 +223,7 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
                     }`}
                   >
                     <svg
+                      className="w-4 dark:fill-white"
                       width="16"
                       height="24"
                       xmlns="http://www.w3.org/2000/svg"
@@ -216,6 +235,7 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
                     </svg>
                   </span>
                   <svg
+                    className="dark:fill-white"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
                     height="24"
@@ -232,13 +252,13 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
                 {isDropdownOpen && (
                   <div className="absolute z-50 p-4 mt-2 bg-white border rounded-md shadow">
                     <div
-                      className="py-2 cursor-pointer hover:text-primaryRed font-Poppins"
+                      className="py-2 cursor-pointer hover:text-primaryRed font-Poppins dark:hover:text-[#3B82F6]"
                       onClick={() => changeLanguage("en")}
                     >
                       English
                     </div>
                     <div
-                      className="py-2 cursor-pointer hover:text-primaryRed font-Poppins"
+                      className="py-2 cursor-pointer hover:text-primaryRed font-Poppins dark:hover:text-[#3B82F6]"
                       onClick={() => changeLanguage("es")}
                     >
                       Español
@@ -247,20 +267,75 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
                 )}
               </div>
 
-              {/* <div className="transition duration-200 ease-in-out hover:scale-110 hover:text-primaryRed">
-              <i className="text-[22px] cursor-pointer fa-solid fa-moon"></i>
-            </div> */}
+              <div
+                className="transition duration-200 ease-in-out hover:scale-110 switch"
+                onClick={toggleDarkMode}
+              >
+                {isDarkMode ? (
+                  <i className="text-[22px] cursor-pointer fa-solid fa-sun text-white"></i>
+                ) : (
+                  <i className="text-[22px] cursor-pointer fa-solid fa-moon"></i>
+                )}
+              </div>
             </div>
 
             <button
               className="xl:hidden burgerIcon"
               onClick={toggleMobileMenu}
             >
-              <img
-                className="w-[40px]"
-                src="/images/Burger Icon.svg"
-                alt="Burger Icon"
-              />
+              <svg
+                className="w-10 fill-black stroke-black dark:fill-white dark:stroke-white"
+                viewBox="0 0 64 64"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="align-right-svgrepo-com (1) 1">
+                  <g id="SVGRepo_iconCarrier">
+                    <g id="Complete">
+                      <g id="align-right">
+                        <g id="Group">
+                          <path
+                            id="Vector"
+                            d="M53.0663 48H29.5996H53.0663Z"
+                            fill="current"
+                            stroke="current"
+                            strokeWidth="5.33333"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            id="Vector_2"
+                            d="M53.3332 37.3333H10.6665H53.3332Z"
+                            fill="white"
+                            stroke="current"
+                            strokeWidth="5.33333"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            id="Vector_3"
+                            d="M53.0663 26.6667H29.5996H53.0663Z"
+                            fill="current"
+                            stroke="current"
+                            strokeWidth="5.33333"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            id="Vector_4"
+                            d="M53.3332 16H10.6665H53.3332Z"
+                            fill="current"
+                            stroke="current"
+                            strokeWidth="5.33333"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
             </button>
           </div>
         </div>

@@ -63,7 +63,7 @@ export default function Technologies() {
 
   const renderTechnologyList = (technologies) => (
     <div className="relative w-full mt-3">
-      <div className="grid w-full grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid w-full grid-cols-2 gap-6 dark:text-white md:grid-cols-3 lg:grid-cols-4">
         {technologies.map((tech, index) => (
           <TechnologyItem
             key={index}
@@ -75,24 +75,22 @@ export default function Technologies() {
   );
 
   return (
-    <section
-      className="mt-20"
-      id="technologies"
-    >
-      <h2 className="text-2xl font-semibold font-Poppins lg:text-2xl xl:text-3xl dark:text-portfolio-background-colo dark:text-portfolio-background-color">
+    <section className="mt-20">
+      <h2>
         {t("technologiesTitle")}
       </h2>
       <div className="line w-full h-[2px] bg-primaryGrey mt-2"></div>
 
-      <p className="text-lg font-semibold text-left mt-14 font-SourceSansPro">
+      <p className="text-lg font-semibold text-left mt-14 font-SourceSansPro dark:text-white">
         Front-End.
       </p>
       {renderTechnologyList(frontEndTechnologies)}
 
-      <p className="text-lg font-semibold text-left mt-14 font-SourceSansPro">
+      <p className="text-lg font-semibold text-left mt-14 font-SourceSansPro dark:text-white">
         {t("technologiesTools")}
       </p>
       {renderTechnologyList(tools)}
+      <div id="education"></div>
     </section>
   );
 }

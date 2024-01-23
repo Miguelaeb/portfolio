@@ -53,11 +53,8 @@ export default function Contact() {
   }
 
   return (
-    <section
-      className="mt-20"
-      id="contact"
-    >
-      <h2 className="text-2xl font-semibold font-Poppins lg:text-2xl xl:text-3xl dark:text-portfolio-background-color">
+    <section className="mt-20">
+      <h2>
         {t("contactTitle")}
       </h2>
       <div className="line w-full h-[2px] bg-primaryGrey mt-2"></div>
@@ -79,13 +76,13 @@ export default function Contact() {
           <div>
             <label
               htmlFor="name"
-              className="block text-lg font-semibold text-left font-SourceSansPro dark:text-portfolio-background-color"
+              className="block text-lg font-semibold text-left font-SourceSansPro dark:text-white"
             >
               {t("contactNameLabel")}
             </label>
             <input
               type="text"
-              className={`w-full border-solid border-2 p-3 rounded-lg font-SourceSansPro focus:font-SourceSansPro focus:outline-none ${
+              className={`w-full border-solid border-2 p-3 rounded-lg font-SourceSansPro focus:font-SourceSansPro focus:outline-none dark:text-white ${
                 nameError
                   ? "border-primaryRed"
                   : name !== ""
@@ -100,7 +97,7 @@ export default function Contact() {
             />
             {nameError && (
               <p
-                className="text-left font-SourceSansPro text-portfolio-primery-color-red"
+                className="text-left text-red-600 font-SourceSansPro"
                 id="nameError"
                 role="alert"
                 aria-live="assertive"
@@ -113,13 +110,13 @@ export default function Contact() {
           <div>
             <label
               htmlFor="email"
-              className="block mt-4 text-lg font-semibold text-left font-SourceSansPro dark:text-portfolio-background-color"
+              className="block mt-4 text-lg font-semibold text-left font-SourceSansPro dark:text-white"
             >
               {t("contactEmailLabel")}
             </label>
             <input
               type="email"
-              className={`w-full border-solid border-2 p-3 rounded-lg font-SourceSansPro focus:font-SourceSansPro placeholder:font-SourceSansPro focus:outline-none placeholder:text-portfolio-primery-color-red bg-portfolio-primary-color-grey/10 backdrop:blur-sm shadow-sm dark:focus:text-portfolio-background-color ${
+              className={`w-full border-solid border-2 p-3 rounded-lg font-SourceSansPro focus:font-SourceSansPro placeholder:font-SourceSansPro focus:outline-none placeholder:text-portfolio-primery-color-red bg-portfolio-primary-color-grey/10 backdrop:blur-sm shadow-sm dark:focus:text-portfolio-background-color dark:text-white ${
                 emailError
                   ? "border-primaryRed"
                   : email !== ""
@@ -135,7 +132,7 @@ export default function Contact() {
             />
             {emailError && (
               <p
-                className="text-left font-SourceSansPro text-portfolio-primery-color-red"
+                className="text-left text-red-600 font-SourceSansPro"
                 id="emailError"
                 role="alert"
                 aria-live="assertive"
@@ -148,13 +145,13 @@ export default function Contact() {
           <div>
             <label
               htmlFor="subject"
-              className="block mt-4 text-lg font-semibold text-left font-SourceSansPro dark:text-portfolio-background-color"
+              className="block mt-4 text-lg font-semibold text-left font-SourceSansPro dark:text-white"
             >
               {t("contactSubjectLabel")}
             </label>
             <input
               type="text"
-              className={`w-full border-solid border-2 p-3 rounded-lg font-SourceSansPro focus:font-SourceSansPro focus:outline-none bg-portfolio-primary-color-grey/10 backdrop:blur-sm shadow-sm dark:focus:text-portfolio-background-color ${
+              className={`w-full border-solid border-2 p-3 rounded-lg font-SourceSansPro focus:font-SourceSansPro focus:outline-none bg-portfolio-primary-color-grey/10 backdrop:blur-sm shadow-sm dark:focus:text-portfolio-background-color dark:text-white ${
                 subjectError
                   ? "border-primaryRed"
                   : subject !== ""
@@ -169,7 +166,7 @@ export default function Contact() {
             />
             {subjectError && (
               <p
-                className="text-left font-SourceSansPro text-portfolio-primery-color-red"
+                className="text-left text-red-600 font-SourceSansPro"
                 id="subjectError"
                 role="alert"
                 aria-live="assertive"
@@ -182,14 +179,14 @@ export default function Contact() {
           <div>
             <label
               htmlFor="message"
-              className="block mt-4 text-lg font-semibold text-left font-SourceSansPro dark:text-portfolio-background-color"
+              className="block mt-4 text-lg font-semibold text-left font-SourceSansPro dark:text-white"
             >
               {t("contactMessageLabel")}
             </label>
             <textarea
               aria-describedby="messageError"
               id="message"
-              className={`w-full border-solid border-2 p-3 rounded-lg resize-none font-SourceSansPro focus:font-SourceSansPro focus:outline-none bg-portfolio-primary-color-grey/10 backdrop:blur-sm shadow-sm dark:focus:text-portfolio-background-color ${
+              className={`w-full border-solid border-2 p-3 rounded-lg resize-none font-SourceSansPro focus:font-SourceSansPro focus:outline-none bg-portfolio-primary-color-grey/10 backdrop:blur-sm shadow-sm dark:focus:text-portfolio-background-color dark:text-white ${
                 messageError
                   ? "border-primaryRed"
                   : message !== ""
@@ -202,7 +199,7 @@ export default function Contact() {
             ></textarea>
             {messageError && (
               <p
-                className="text-left font-SourceSansPro text-portfolio-primery-color-red"
+                className="text-left text-red-600 font-SourceSansPro"
                 id="messageError"
                 role="alert"
                 aria-live="assertive"
@@ -214,7 +211,7 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="block px-10 py-2 mt-6 text-lg font-semibold transition duration-300 ease-in-out rounded-md font-SourceSansPro text-background-color bg-primaryRed lg:px-20 hover:scale-105"
+            className="block px-10 py-2 mt-6 text-lg font-semibold transition duration-300 ease-in-out rounded-md font-SourceSansPro text-background-color bg-primaryRed lg:px-20 hover:scale-105 dark:bg-[#3B82F6]"
           >
             {t("submitButton")}
           </button>

@@ -4,8 +4,8 @@ export default function About() {
   const { t } = useTranslation();
 
   return (
-    <section className="mt-20" id="about">
-      <h2 className="text-2xl font-semibold font-Poppins lg:text-2xl xl:text-3xl dark:text-portfolio-background-color">
+    <section className="mt-20" >
+      <h2>
         {t('aboutTitle')}
       </h2>
       <div className="line w-full h-[2px] bg-primaryGrey mt-2"></div>
@@ -16,15 +16,17 @@ export default function About() {
         </div>
 
         <div className="lg:text-left lg:w-3/5">
-          <p className="mt-12 font-SourceSansPros lg:mt-0 lg:text-base dark:text-portfolio-background-color">
+          <p className="mt-12 font-SourceSansPros lg:mt-0 lg:text-base dark:text-white">
             {t('aboutDescription1')}
           </p>
 
-          <p className="mt-6 font-SourceSansPro lg:text-base dark:text-portfolio-background-color">
+          <p className="mt-6 font-SourceSansPro lg:text-base dark:text-white">
             {t('aboutDescription2')}
           </p>
         </div>
       </div>
+
+      <div id="technologies"></div>
     </section>
   );
 }
