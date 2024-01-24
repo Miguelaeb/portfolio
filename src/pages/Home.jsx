@@ -10,7 +10,9 @@ import Contact from "../components/Contact";
 import PropTypes from "prop-types";
 
 export default function Home({ isNavbarOpen }) {
-  useEffect(() => {}, [isNavbarOpen]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [isNavbarOpen]);
 
   Home.propTypes = {
     isNavbarOpen: PropTypes.func.isRequired,
