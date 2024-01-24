@@ -12,9 +12,9 @@ export default function Footer({ isNavbarOpen }) {
 
   return (
     <footer
-      className={` ${
+      className={`lg:mx-auto lg:w-[60rem] xl:w-[80rem] 2xl:w-[100rem] mt-auto ${
         isNavbarOpen ? "blur-sm" : ""
-      } lg:mx-auto lg:w-[60rem] xl:w-[80rem] 2xl:w-[100rem] `}
+      }`}
       id="footer"
     >
       <div className="line w-full h-[2px] bg-portfolio-primary-color-grey mt-2"></div>

@@ -1,6 +1,8 @@
+// Navbar.js
 import { useState, useEffect, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
   const [isNavbarOpen, setisNavbarOpen] = useState(false);
@@ -9,14 +11,16 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const navbarRef = useRef(null);
 
+  const { i18n } = useTranslation();
+  const { t } = useTranslation();
+
+  const location = useLocation();
+
   const toggleMobileMenu = () => {
     setisNavbarOpen(!isNavbarOpen);
     setIsNavbarOpen(!isNavbarOpen);
     setIsMenuClosing(true);
   };
-
-  const { i18n } = useTranslation();
-  const { t } = useTranslation();
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -34,10 +38,7 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
   };
 
   const toggleDarkMode = () => {
-    // Toggle the state of isDarkMode
     setIsDarkMode(!isDarkMode);
-
-    // Toggle the 'dark' class on the HTML body element
     document.body.classList.toggle("dark");
   };
 
@@ -87,119 +88,118 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
           : "w-full lg:rounded-xl "
       }`}
     >
-      <nav
-        className="relative lg:max-w-[60rem] xl:max-w-[80rem] 2xl:max-w-[100rem] lg:mx-auto"
-        // ref={navbarRef}
-      >
+      <nav className="relative lg:max-w-[60rem] xl:max-w-[80rem] 2xl:max-w-[100rem] lg:mx-auto">
         <div className="flex items-center justify-between">
           <div className="transition duration-200 ease-in-out hover:scale-110">
-            <svg
-              className={` w-[35px] dark:fill-white ${
-                isNavbarOpen ? "blur-sm xl:blur-none" : ""
-              }`}
-              viewBox="0 0 56 70"
-              fill="current"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M46 68L19 19L28 2L55 51L46 68Z"
+            <Link to="/">
+              <svg
+                className={` w-[35px] dark:fill-white ${
+                  isNavbarOpen ? "blur-sm xl:blur-none" : ""
+                }`}
+                viewBox="0 0 56 70"
                 fill="current"
-                stroke="current"
-              />
-              <path
-                d="M16.5 24L1 53.5L20 51.5L26 41L16.5 24Z"
-                fill="current"
-                stroke="current"
-              />
-            </svg>
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M46 68L19 19L28 2L55 51L46 68Z"
+                  fill="current"
+                  stroke="current"
+                />
+                <path
+                  d="M16.5 24L1 53.5L20 51.5L26 41L16.5 24Z"
+                  fill="current"
+                  stroke="current"
+                />
+              </svg>
+            </Link>
           </div>
 
           <div
             className={`navbar--links--container ${
               isNavbarOpen ? "" : "hidden"
-            }   fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 xl:block xl:relative xl:top-0 xl:left-0 xl:transform-none w-full`}
+            } fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 xl:block xl:relative xl:top-0 xl:left-0 xl:transform-none w-full`}
           >
-            <div
-              onClick={closeMenu}
-              className="flex items-center justify-center w-full h-screen xl:w-auto xl:h-auto linksContainer"
-            >
-              <ul className="flex flex-col w-10/12 gap-4 p-4 bg-white rounded-md xl:p-0 xl:flex-row xl:space-x-8 xl:animate-none xl:bg-transparent lg:w-1/2 xl:w-auto dark:bg-black">
-                <li>
-                  <a
-                    className="navLink"
-                    href="#home"
-                    onClick={closeMenu}
-                  >
-                    {t("navbarHome")}
-                    <span className="mt-2 font-SourceSansPro xl:hidden">
-                      {t("navbarSubHome")}
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="navLink"
-                    href="#projects"
-                    onClick={closeMenu}
-                  >
-                    {t("navbarProjects")}
-                    <span className="mt-2 font-SourceSansPro xl:hidden">
-                      {t("navbarSubProjects")}
-                    </span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="navLink"
-                    href="#about"
-                    onClick={closeMenu}
-                  >
-                    {t("navbarAbout")}
-                    <p className="mt-2 font-SourceSansPro xl:hidden">
-                      {t("navbarSubAbout")}
-                    </p>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="navLink"
-                    href="#technologies"
-                    onClick={closeMenu}
-                  >
-                    {t("navbarTechnologies")}
-
-                    <p className="mt-2 font-SourceSansPro xl:hidden">
-                      {t("navbarSubTechnologies")}
-                    </p>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="navLink"
-                    href="#education"
-                    onClick={closeMenu}
-                  >
-                    {t("navbarEducation")}
-
-                    <p className="mt-2 font-SourceSansPro xl:hidden">
-                      {t("navbarSubEducation")}
-                    </p>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="navLink"
-                    href="#contact"
-                    onClick={closeMenu}
-                  >
-                    {t("navbarContact")}
-                    <p className="mt-2 font-SourceSansPro xl:hidden">
-                      {t("navbarSubContact")}
-                    </p>
-                  </a>
-                </li>
-              </ul>
-            </div>
+            {location.pathname !== "/projects" && (
+              <div
+                onClick={closeMenu}
+                className="flex items-center justify-center w-full h-screen xl:w-auto xl:h-auto linksContainer"
+              >
+                <ul className="flex flex-col w-10/12 gap-4 p-4 bg-white rounded-md xl:p-0 xl:flex-row xl:space-x-8 xl:animate-none xl:bg-transparent lg:w-1/2 xl:w-auto dark:bg-black">
+                  <li>
+                    <a
+                      className="navLink"
+                      href="#home"
+                      onClick={closeMenu}
+                    >
+                      {t("navbarHome")}
+                      <span className="mt-2 font-SourceSansPro xl:hidden">
+                        {t("navbarSubHome")}
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="navLink"
+                      href="#projects"
+                      onClick={closeMenu}
+                    >
+                      {t("navbarProjects")}
+                      <span className="mt-2 font-SourceSansPro xl:hidden">
+                        {t("navbarSubProjects")}
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="navLink"
+                      href="#about"
+                      onClick={closeMenu}
+                    >
+                      {t("navbarAbout")}
+                      <p className="mt-2 font-SourceSansPro xl:hidden">
+                        {t("navbarSubAbout")}
+                      </p>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="navLink"
+                      href="#technologies"
+                      onClick={closeMenu}
+                    >
+                      {t("navbarTechnologies")}
+                      <p className="mt-2 font-SourceSansPro xl:hidden">
+                        {t("navbarSubTechnologies")}
+                      </p>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="navLink"
+                      href="#education"
+                      onClick={closeMenu}
+                    >
+                      {t("navbarEducation")}
+                      <p className="mt-2 font-SourceSansPro xl:hidden">
+                        {t("navbarSubEducation")}
+                      </p>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="navLink"
+                      href="#contact"
+                      onClick={closeMenu}
+                    >
+                      {t("navbarContact")}
+                      <p className="mt-2 font-SourceSansPro xl:hidden">
+                        {t("navbarSubContact")}
+                      </p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
 
           <div
@@ -278,65 +278,66 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
                 )}
               </div>
             </div>
-
-            <button
-              className="xl:hidden burgerIcon"
-              onClick={toggleMobileMenu}
-            >
-              <svg
-                className="w-10 fill-black stroke-black dark:fill-white dark:stroke-white"
-                viewBox="0 0 64 64"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+            {location.pathname !== "/projects" && (
+              <button
+                className="xl:hidden burgerIcon"
+                onClick={toggleMobileMenu}
               >
-                <g id="align-right-svgrepo-com (1) 1">
-                  <g id="SVGRepo_iconCarrier">
-                    <g id="Complete">
-                      <g id="align-right">
-                        <g id="Group">
-                          <path
-                            id="Vector"
-                            d="M53.0663 48H29.5996H53.0663Z"
-                            fill="current"
-                            stroke="current"
-                            strokeWidth="5.33333"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                          <path
-                            id="Vector_2"
-                            d="M53.3332 37.3333H10.6665H53.3332Z"
-                            fill="white"
-                            stroke="current"
-                            strokeWidth="5.33333"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                          <path
-                            id="Vector_3"
-                            d="M53.0663 26.6667H29.5996H53.0663Z"
-                            fill="current"
-                            stroke="current"
-                            strokeWidth="5.33333"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                          <path
-                            id="Vector_4"
-                            d="M53.3332 16H10.6665H53.3332Z"
-                            fill="current"
-                            stroke="current"
-                            strokeWidth="5.33333"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
+                <svg
+                  className="w-10 fill-black stroke-black dark:fill-white dark:stroke-white"
+                  viewBox="0 0 64 64"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g id="align-right-svgrepo-com (1) 1">
+                    <g id="SVGRepo_iconCarrier">
+                      <g id="Complete">
+                        <g id="align-right">
+                          <g id="Group">
+                            <path
+                              id="Vector"
+                              d="M53.0663 48H29.5996H53.0663Z"
+                              fill="current"
+                              stroke="current"
+                              strokeWidth="5.33333"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              id="Vector_2"
+                              d="M53.3332 37.3333H10.6665H53.3332Z"
+                              fill="white"
+                              stroke="current"
+                              strokeWidth="5.33333"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              id="Vector_3"
+                              d="M53.0663 26.6667H29.5996H53.0663Z"
+                              fill="current"
+                              stroke="current"
+                              strokeWidth="5.33333"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              id="Vector_4"
+                              d="M53.3332 16H10.6665H53.3332Z"
+                              fill="current"
+                              stroke="current"
+                              strokeWidth="5.33333"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </g>
                         </g>
                       </g>
                     </g>
                   </g>
-                </g>
-              </svg>
-            </button>
+                </svg>
+              </button>
+            )}
           </div>
         </div>
       </nav>

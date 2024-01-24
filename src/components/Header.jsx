@@ -39,7 +39,7 @@ export default function Header() {
       </div>
 
       <div className="mt-10 lg:text-left lg:w-full lg:mt-0 lg:pr-24">
-        <h1 className="text-2xl font-Poppins lg:text-3xl xl:text-4xl dark:text-white">
+        <h1 className="">
           Miguel
           <span className=" text-primaryRed dark:text-[#3B82F6]">
             {" "}

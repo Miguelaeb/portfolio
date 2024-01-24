@@ -9,9 +9,8 @@ import Education from "../components/Education";
 import Contact from "../components/Contact";
 import PropTypes from "prop-types";
 
-function Home({ isNavbarOpen }) {
-  useEffect(() => {
-  }, [isNavbarOpen]);
+export default function Home({ isNavbarOpen }) {
+  useEffect(() => {}, [isNavbarOpen]);
 
   Home.propTypes = {
     isNavbarOpen: PropTypes.func.isRequired,
@@ -34,5 +33,3 @@ function Home({ isNavbarOpen }) {
     </I18nextProvider>
   );
 }
-
-export default Home;

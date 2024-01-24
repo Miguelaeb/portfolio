@@ -5,6 +5,10 @@
 @tailwind utilities;
 
 @layer base {
+  h1 {
+    @apply text-2xl font-Poppins lg:text-3xl xl:text-4xl dark:text-white;
+  }
+
   h2 {
     @apply text-2xl font-semibold font-Poppins lg:text-2xl xl:text-3xl dark:text-white;
   }
