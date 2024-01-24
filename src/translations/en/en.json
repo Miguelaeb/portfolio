@@ -19,6 +19,9 @@
   "resumeButton": "Resume",
 
   "projectsTitle": "Projects.",
+  "projectsButton": "See more projects",
+
+  "homeProjectButtonm": "Home",
 
   "aboutTitle": "About me.",
   "aboutDescription1": "I am a front-end developer currently residing in Santo Domingo, Dominican Republic.",

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import Projects from "./pages/Projects";
 
 function App() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -15,6 +16,10 @@ function App() {
           <Route
             path="/"
             element={<Home isNavbarOpen={isNavbarOpen} />}
+          />
+          <Route
+            path="/projects"
+            element={<Projects />}
           />
         </Routes>
         <Footer isNavbarOpen={isNavbarOpen} />
