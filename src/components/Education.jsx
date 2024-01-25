@@ -32,9 +32,6 @@ const educationData = [
   },
 ];
 
-const commonImageStyles =
-  "object-scale-down object-center mx-auto mb-4 transition duration-300 ease-in-out lg:h-48 md:h-36 rounded-xl hover:scale-110";
-
 const EducationItem = ({ name, link, logo, program, year }) => (
   <a
     href={link}
@@ -42,7 +39,7 @@ const EducationItem = ({ name, link, logo, program, year }) => (
     rel="noreferrer"
   >
     <img
-      className={commonImageStyles}
+      className="object-scale-down object-center mx-auto mb-4 lg:ease-in-out lg:duration-300 lg:transition lg:h-48 md:h-36 rounded-xl hover:scale-110"
       src={logo}
       alt={name}
     />
