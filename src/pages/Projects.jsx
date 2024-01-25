@@ -48,7 +48,7 @@ const ProjectCard = ({ title, image, githubLink, liveLink }) => (
       rel="noreferrer"
     >
       <img
-        className="object-center w-full mb-4 transition duration-300 ease-in-out shadow-md cursor-pointer lg:h-48 md:h-36 rounded-xl hover:scale-110"
+        className="object-center w-full mb-4 shadow-md cursor-pointer lg:ease-in-out lg:duration-300 lg:transition lg:h-48 md:h-36 rounded-xl lg:hover:scale-110"
         src={image}
         alt={title}
       />
