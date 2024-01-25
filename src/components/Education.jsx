@@ -39,7 +39,7 @@ const EducationItem = ({ name, link, logo, program, year }) => (
     rel="noreferrer"
   >
     <img
-      className="object-scale-down object-center mx-auto mb-4 lg:ease-in-out lg:duration-300 lg:transition lg:h-48 md:h-36 rounded-xl hover:scale-110"
+      className="object-scale-down object-center mx-auto mb-4 lg:ease-in-out lg:duration-300 lg:transition lg:h-48 md:h-36 rounded-xl lg:hover:scale-110"
       src={logo}
       alt={name}
     />
