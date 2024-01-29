@@ -39,6 +39,8 @@
   "contactMessageLabel": "Message:",
   "submitButton": "Send",
 
+  "formNameValidation": "Name is required",
+
   "footerRights": "All Rights Reserved."
 }
   
