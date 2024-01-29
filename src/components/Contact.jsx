@@ -17,10 +17,6 @@ export default function Contact() {
       errors.email = "Email is invalid";
     }
 
-    if (!values.subject) {
-      errors.subject = "Subject is required";
-    }
-
     if (!values.message) {
       errors.message = "Message is required";
     }
@@ -39,10 +35,10 @@ export default function Contact() {
       <h2>{t("contactTitle")}</h2>
       <div className="line w-full h-[2px] bg-primaryGrey mt-2"></div>
 
-      <div className="mt-14"> 
+      <div className="mt-14">
         <div className="mt-10 lg:mt-14 xl:mt-0">
           <Formik
-            initialValues={{ name: "", email: "", subject: "", message: "" }}
+            initialValues={{ name: "", email: "", message: "" }}
             validate={validate}
             onSubmit={handleSubmit}
           >
@@ -83,26 +79,6 @@ export default function Contact() {
                 <ErrorMessage
                   className="text-left dark:text-white"
                   name="email"
-                  component="div"
-                />
-              </div>
-
-              <div>
-                <label
-                  className="block mt-4 text-lg font-semibold text-left font-SourceSansPro dark:text-white"
-                  htmlFor="subject"
-                >
-                  {t("contactSubjectLabel")}
-                </label>
-                <Field
-                  className="w-full p-3 border-2 border-solid rounded-lg shadow-sm font-SourceSansPro focus:font-SourceSansPro focus:outline-none dark:text-white bg-primaryGrey/10 backdrop:blur-sm"
-                  type="text"
-                  id="subject"
-                  name="subject"
-                />
-                <ErrorMessage
-                  className="text-left dark:text-white"
-                  name="subject"
                   component="div"
                 />
               </div>
