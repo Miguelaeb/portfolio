@@ -38,5 +38,7 @@
   "contactMessageLabel": "Mensaje:",
   "submitButton": "Enviar",
 
+  "formNameValidation": "El nombre es requrido",
+
   "footerRights": "Todos los derechos reservados"
 }
