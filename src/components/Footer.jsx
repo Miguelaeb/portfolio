@@ -12,7 +12,7 @@ export default function Footer({ isNavbarOpen }) {
 
   return (
     <footer
-      className={`lg:mx-auto lg:w-[60rem] xl:w-[80rem] 2xl:w-[100rem] mt-auto ${
+      className={`lg:mx-auto lg:w-[60rem] xl:w-[80rem] 2xl:w-[100rem] mt-auto lg:px-8 ${
         isNavbarOpen ? "blur-sm" : ""
       }`}
       id="footer"
