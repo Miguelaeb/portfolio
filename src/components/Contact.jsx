@@ -23,44 +23,46 @@ export default function Contact() {
         onSubmit={handleSubmit}
       >
         <div className="flex flex-col gap-4">
-          <div>
-            <label
-              className="block text-lg font-semibold text-left font-SourceSansPro dark:text-white"
-              htmlFor="firstName"
-            >
-              {t("contactNameLabel")}
-            </label>
-            <input
-              className="w-full p-3 border-2 border-solid rounded-lg shadow-sm font-SourceSansPro focus:font-SourceSansPro focus:outline-none dark:text-white bg-primaryGrey/10 backdrop:blur-sm"
-              id="firstName"
-              type="text"
-              name="firstName"
-            />
-            <ValidationError
-              prefix="firstName"
-              field="firstName"
-              errors={state.errors}
-            />
-          </div>
+          <div className="flex flex-col gap-4 xl:flex-row">
+            <div className="w-full ">
+              <label
+                className="block text-lg font-semibold text-left font-SourceSansPro dark:text-white"
+                htmlFor="firstName"
+              >
+                {t("contactNameLabel")}
+              </label>
+              <input
+                className="w-full p-3 border-2 border-solid rounded-lg shadow-sm font-SourceSansPro focus:font-SourceSansPro focus:outline-none dark:text-white bg-primaryGrey/10 backdrop:blur-sm"
+                id="firstName"
+                type="text"
+                name="firstName"
+              />
+              <ValidationError
+                prefix="firstName"
+                field="firstName"
+                errors={state.errors}
+              />
+            </div>
 
-          <div>
-            <label
-              className="block text-lg font-semibold text-left font-SourceSansPro dark:text-white"
-              htmlFor="lastName"
-            >
-              {t("contactLastNameLabel")}
-            </label>
-            <input
-              className="w-full p-3 border-2 border-solid rounded-lg shadow-sm font-SourceSansPro focus:font-SourceSansPro focus:outline-none dark:text-white bg-primaryGrey/10 backdrop:blur-sm"
-              id="lastName"
-              type="text"
-              name="lastName"
-            />
-            <ValidationError
-              prefix="lastName"
-              field="lastName"
-              errors={state.errors}
-            />
+            <div className="w-full ">
+              <label
+                className="block text-lg font-semibold text-left font-SourceSansPro dark:text-white"
+                htmlFor="lastName"
+              >
+                {t("contactLastNameLabel")}
+              </label>
+              <input
+                className="w-full p-3 border-2 border-solid rounded-lg shadow-sm font-SourceSansPro focus:font-SourceSansPro focus:outline-none dark:text-white bg-primaryGrey/10 backdrop:blur-sm"
+                id="lastName"
+                type="text"
+                name="lastName"
+              />
+              <ValidationError
+                prefix="lastName"
+                field="lastName"
+                errors={state.errors}
+              />
+            </div>
           </div>
 
           <div>
