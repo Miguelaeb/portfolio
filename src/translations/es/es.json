@@ -33,6 +33,7 @@
 
   "contactTitle": "Contactame.",
   "contactNameLabel": "Nombre:",
+  "contactLastNameLabel": "Apellido",
   "contactEmailLabel": "Email:",
   "contactSubjectLabel": "Asunto:",
   "contactMessageLabel": "Mensaje:",

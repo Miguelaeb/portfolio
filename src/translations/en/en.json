@@ -33,7 +33,8 @@
   "educationTitle": "Education.",
 
   "contactTitle": "Contact me.",
-  "contactNameLabel": "Your name:",
+  "contactNameLabel": "First name:",
+  "contactLastNameLabel": "Last Name",
   "contactEmailLabel": "Your email:",
   "contactSubjectLabel": "Subject:",
   "contactMessageLabel": "Message:",
