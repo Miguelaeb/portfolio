@@ -108,7 +108,7 @@ export default function Contact() {
           type="submit"
           disabled={state.submitting}
         >
-          Submit
+          {t("submitButton")}
         </button>
       </form>
     </section>
