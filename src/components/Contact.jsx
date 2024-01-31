@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 export default function Contact() {
   const { t } = useTranslation();
-  const [state, handleSubmit] = useForm("mzbndqzn");
+  const [{ succeeded, submitting, errors }, handleSubmit] = useForm("mzbndqzn");
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -14,7 +14,7 @@ export default function Contact() {
   });
 
   useEffect(() => {
-    if (state.succeeded) {
+    if (succeeded) {
       setIsAlertVisible(true);
       setFormData({
         firstName: "",
@@ -29,7 +29,7 @@ export default function Contact() {
 
       return () => clearTimeout(timeoutId);
     }
-  }, [state.succeeded]);
+  }, [succeeded]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -65,13 +65,14 @@ export default function Contact() {
                 id="firstName"
                 type="text"
                 name="firstName"
+                required
                 value={formData.firstName}
                 onChange={handleInputChange}
               />
               <ValidationError
                 prefix="firstName"
                 field="firstName"
-                errors={state.errors}
+                errors={errors}
               />
             </div>
 
@@ -87,13 +88,14 @@ export default function Contact() {
                 id="lastName"
                 type="text"
                 name="lastName"
+                required
                 value={formData.lastName}
                 onChange={handleInputChange}
               />
               <ValidationError
                 prefix="lastName"
                 field="lastName"
-                errors={state.errors}
+                errors={errors}
               />
             </div>
           </div>
@@ -110,13 +112,14 @@ export default function Contact() {
               id="email"
               type="email"
               name="email"
+              required
               value={formData.email}
               onChange={handleInputChange}
             />
             <ValidationError
               prefix="Email"
               field="email"
-              errors={state.errors}
+              errors={errors}
             />
           </div>
 
@@ -132,29 +135,29 @@ export default function Contact() {
               className="w-full h-[200px] p-3 border-2 border-solid rounded-lg shadow-sm resize-none font-SourceSansPro focus:font-SourceSansPro focus:outline-none bg-portfolio-primary-color-grey/10 backdrop:blur-sm dark:text-white bg-primaryGrey/10"
               id="message"
               name="message"
+              required
               value={formData.message}
               onChange={handleInputChange}
             />
             <ValidationError
               prefix="Message"
               field="message"
-              errors={state.errors}
+              errors={errors}
             />
           </div>
         </div>
         <button
           className="block px-10 py-2 mt-6 text-lg font-semibold transition duration-300 ease-in-out rounded-md font-SourceSansPro text-background-color bg-primaryRed lg:px-20 hover:scale-105 dark:bg-[#3B82F6]"
           type="submit"
-          disabled={state.submitting}
+          disabled={submitting}
         >
           {t("submitButton")}
         </button>
       </form>
 
-      {/* Componente de alerta */}
       {isAlertVisible && (
         <div className="p-4 mt-4 text-white bg-green-500 rounded-md">
-          ¡El email se ha enviado con éxito!
+          {t("successMessage")}
         </div>
       )}
     </section>

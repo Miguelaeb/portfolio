@@ -39,6 +39,8 @@
   "contactSubjectLabel": "Subject:",
   "contactMessageLabel": "Message:",
   "submitButton": "Send",
+  
+  "successMessage": "The email has been sent successfully!",
 
   "formNameValidation": "Name is required",
 
