@@ -57,6 +57,7 @@ export default function Header() {
             href="https://github.com/Miguelaeb"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub Profile"
           >
             <i className={"fa-brands fa-github headerIcon"}></i>
           </a>
@@ -64,6 +65,7 @@ export default function Header() {
             href="https://twitter.com/MiguelEvan56212"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Twitter Profile"
           >
             <i className="fa-brands fa-twitter headerIcon"></i>
           </a>
@@ -71,6 +73,7 @@ export default function Header() {
             href="https://www.linkedin.com/in/miguel-evangelista-8458b9150/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
           >
             <i className="fa-brands fa-linkedin-in headerIcon"></i>
           </a>
@@ -78,19 +81,21 @@ export default function Header() {
             href="https://instagram.com/miguel_aeb?igshid=NTc4MTIwNjQ2YQ=="
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Instagram Profile"
           >
             <i className="fa-brands fa-instagram headerIcon"></i>
           </a>
         </div>
 
         <button
-          className={
-            "py-2 mt-6 w-full font-SourceSansPro font-semibold text-lg text-background-color rounded-md md:self-start md:w-[250px] lg:mt-24 xl:w-[300px] hover:scale-105 transition duration-300 ease-in-out bg-primaryRed dark:bg-[#3B82F6]"
-          }
-          onClick={handleDownloadClick}
-        >
-          {t("resumeButton")}
-        </button>
+  className={
+    "py-2 mt-6 w-full font-SourceSansPro font-semibold text-lg text-background-color rounded-md md:self-start md:w-[250px] lg:mt-24 xl:w-[300px] hover:scale-105 transition duration-300 ease-in-out bg-primaryRed dark:bg-gray-800" // Adjusted background color for better contrast
+  }
+  onClick={handleDownloadClick}
+>
+  {t("resumeButton")}
+</button>
+
       </div>
       <div id="projects"></div>
     </header>

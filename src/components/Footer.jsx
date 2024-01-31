@@ -25,6 +25,7 @@ export default function Footer({ isNavbarOpen }) {
             href="https://github.com/Miguelaeb"
             target="_blank"
             rel="noreferrer"
+            aria-label="GitHub Profile"
           >
             <i className="fa-brands fa-github footerIcon"></i>
           </a>
@@ -32,6 +33,7 @@ export default function Footer({ isNavbarOpen }) {
             href="https://twitter.com/MiguelEvan56212"
             target="_blank"
             rel="noreferrer"
+            aria-label="Twitter Profile"
           >
             <i className="fa-brands fa-twitter footerIcon"></i>
           </a>
@@ -39,6 +41,7 @@ export default function Footer({ isNavbarOpen }) {
             href="https://www.linkedin.com/in/miguelaer/"
             target="_blank"
             rel="noreferrer"
+            aria-label="LinkedIn Profile"
           >
             <i className="fa-brands fa-linkedin-in footerIcon"></i>
           </a>
@@ -46,6 +49,7 @@ export default function Footer({ isNavbarOpen }) {
             href="https://instagram.com/miguel_aeb?igshid=NTc4MTIwNjQ2YQ=="
             target="_blank"
             rel="noreferrer"
+            aria-label="Instagram Profile"
           >
             <i className="fa-brands fa-instagram footerIcon"></i>
           </a>

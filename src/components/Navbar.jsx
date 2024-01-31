@@ -92,8 +92,9 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
         <div className="flex items-center justify-between">
           <div className="transition duration-200 ease-in-out hover:scale-110">
             <Link to="/">
+              <span className="sr-only">Home</span>
               <svg
-                className={` w-[35px] dark:fill-white ${
+                className={`w-[35px] dark:fill-white ${
                   isNavbarOpen ? "blur-sm xl:blur-none" : ""
                 }`}
                 viewBox="0 0 56 70"
@@ -282,6 +283,7 @@ export default function Navbar({ setIsNavbarOpen, setIsMenuClosing }) {
               <button
                 className="xl:hidden burgerIcon"
                 onClick={toggleMobileMenu}
+                aria-label="Toggle Mobile Menu"
               >
                 <svg
                   className="w-10 fill-black stroke-black dark:fill-white dark:stroke-white"

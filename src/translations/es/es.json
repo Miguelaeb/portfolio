@@ -39,6 +39,8 @@
   "contactMessageLabel": "Mensaje:",
   "submitButton": "Enviar",
 
+  "successMessage": "¡El correo electrónico ha sido enviado exitosamente!",
+
   "formNameValidation": "El nombre es requrido",
 
   "footerRights": "Todos los derechos reservados"

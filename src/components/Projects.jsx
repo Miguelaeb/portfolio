@@ -46,6 +46,7 @@ const ProjectCard = ({ title, image, githubLink, liveLink }) => (
       href={liveLink}
       target="_blank"
       rel="noreferrer"
+      aria-label={`View live project: ${title}`}
     >
       <img
         className="object-center w-full mb-4 shadow-md cursor-pointer lg:ease-in-out lg:duration-300 lg:transition lg:h-48 md:h-36 rounded-xl lg:hover:scale-110"
@@ -64,6 +65,7 @@ const ProjectCard = ({ title, image, githubLink, liveLink }) => (
           href={githubLink}
           target="_blank"
           rel="noreferrer"
+          aria-label={`View GitHub repository for ${title}`}
         >
           <i className="text-xl fa-brands fa-github hover:text-portfolio-primary-color-red hover:text-primaryRed dark:text-white dark:hover:text-[#3B82F6]"></i>
         </a>
