@@ -88,14 +88,13 @@ export default function Header() {
         </div>
 
         <button
-  className={
-    "py-2 mt-6 w-full font-SourceSansPro font-semibold text-lg text-background-color rounded-md md:self-start md:w-[250px] lg:mt-24 xl:w-[300px] hover:scale-105 transition duration-300 ease-in-out bg-primaryRed dark:bg-gray-800" // Adjusted background color for better contrast
-  }
-  onClick={handleDownloadClick}
->
-  {t("resumeButton")}
-</button>
-
+          className={
+            "py-2 mt-6 w-full font-SourceSansPro font-semibold text-lg text-background-color rounded-md md:self-start md:w-[250px] lg:mt-24 xl:w-[300px] hover:scale-105 transition duration-300 ease-in-out bg-primaryRed dark:bg-[#3B82F6]"
+          }
+          onClick={handleDownloadClick}
+        >
+          {t("resumeButton")}
+        </button>
       </div>
       <div id="projects"></div>
     </header>
