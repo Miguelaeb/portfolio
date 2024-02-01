@@ -59,6 +59,8 @@ export default function Technologies() {
     { imageSrc: "./images/npm_logo.png", altText: "NPM", text: "NPM" },
     { imageSrc: "./images/yarn_logo.png", altText: "Yarn", text: "Yarn" },
     { imageSrc: "./images/figma_logo.png", altText: "Figma", text: "Figma" },
+    { imageSrc: "./images/adobexd_logo.png", altText: "Adobe XD", text: "Adobe XD" },
+    { imageSrc: "./images/photoshop_logo.png", altText: "Photoshop", text: "Photoshop" },
   ];
 
   const renderTechnologyList = (technologies) => (
