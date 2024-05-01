@@ -21,7 +21,7 @@ export default function Home({ isNavbarOpen }) {
   return (
     <I18nextProvider i18n={i18n}>
       <main
-        className={`relative max-w-2xl mx-auto text-center mb-14 lg:max-w-3xl xl:max-w-6xl overflow-hidden ${
+        className={`relative max-w-2xl mx-auto text-center mb-14 lg:max-w-3xl xl:max-w-6xl ${
           isNavbarOpen ? "blur-sm xl:blur-none" : ""
         }`}
       >
