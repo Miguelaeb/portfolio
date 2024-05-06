@@ -70,6 +70,11 @@ export default function Technologies() {
       altText: "Jira",
       text: "Jira",
     },
+    {
+      imageSrc: "./images/notion_logo.png",
+      altText: "Notion",
+      text: "Notion",
+    },
   ];
 
   const renderTechnologyList = (technologies) => (
