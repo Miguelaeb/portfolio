@@ -4,11 +4,7 @@ import { useTranslation } from "react-i18next";
 function TechnologyItem({ imageSrc, altText, text }) {
   return (
     <div className="flex items-center py-4 pl-2 rounded-md shadow-sm bg-primaryGrey/10 backdrop:blur-sm">
-      <img
-        className="w-6 mr-2"
-        src={imageSrc}
-        alt={altText}
-      />
+      <img className="w-6 mr-2" src={imageSrc} alt={altText} />
       <p className="font-SourceSansPro dark:text-portfolio-background-color">
         {text}
       </p>
@@ -59,18 +55,28 @@ export default function Technologies() {
     { imageSrc: "./images/npm_logo.png", altText: "NPM", text: "NPM" },
     { imageSrc: "./images/yarn_logo.png", altText: "Yarn", text: "Yarn" },
     { imageSrc: "./images/figma_logo.png", altText: "Figma", text: "Figma" },
-    { imageSrc: "./images/adobexd_logo.png", altText: "Adobe XD", text: "Adobe XD" },
-    { imageSrc: "./images/photoshop_logo.png", altText: "Photoshop", text: "Photoshop" },
+    {
+      imageSrc: "./images/adobexd_logo.png",
+      altText: "Adobe XD",
+      text: "Adobe XD",
+    },
+    {
+      imageSrc: "./images/photoshop_logo.png",
+      altText: "Photoshop",
+      text: "Photoshop",
+    },
+    {
+      imageSrc: "./images/jira_logo.png",
+      altText: "Jira",
+      text: "Jira",
+    },
   ];
 
   const renderTechnologyList = (technologies) => (
     <div className="relative w-full mt-3">
       <div className="grid w-full grid-cols-2 gap-6 dark:text-white md:grid-cols-3 lg:grid-cols-4">
         {technologies.map((tech, index) => (
-          <TechnologyItem
-            key={index}
-            {...tech}
-          />
+          <TechnologyItem key={index} {...tech} />
         ))}
       </div>
     </div>
@@ -78,9 +84,7 @@ export default function Technologies() {
 
   return (
     <section className="mt-20">
-      <h2>
-        {t("technologiesTitle")}
-      </h2>
+      <h2>{t("technologiesTitle")}</h2>
       <div className="line w-full h-[2px] bg-primaryGrey mt-2"></div>
 
       <p className="text-lg font-semibold text-left mt-14 font-SourceSansPro dark:text-white">
