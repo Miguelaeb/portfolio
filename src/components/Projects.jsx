@@ -12,12 +12,6 @@ const projects = [
     liveLink: "https://alura-flix-beige.vercel.app/",
   },
   {
-    title: "Blogr Landing Page",
-    image: "./images/blogr_project.png",
-    githubLink: "https://github.com/Miguelaeb/blogr-landing-page",
-    liveLink: "https://blogr-landing-page-toyy.onrender.com/",
-  },
-  {
     title: "AluraGeek",
     image: "./images/AluraGeek__preview.png",
     githubLink: "https://github.com/Miguelaeb/aluraGeek",
@@ -109,10 +103,7 @@ export default function Projects() {
       <div className="relative items-center w-full mt-14">
         <div className="grid w-full grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
           {projects.slice(0, projectsToShow).map((project, index) => (
-            <ProjectCard
-              key={index}
-              {...project}
-            />
+            <ProjectCard key={index} {...project} />
           ))}
         </div>
       </div>
