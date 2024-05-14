@@ -1,27 +1,68 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import i18n from "../i18n";
 
-const PDF_URL_EN = "./PDF/en/Miguel Evangelista Front end developer.pdf";
-const PDF_URL_ES = "./PDF/es/Miguel Evangelista desarrollador Front end.pdf";
+const PDF_URLS = {
+  en: {
+    resume: "./PDF/en/Miguel Evangelista Front end developer.pdf",
+    noCountry: "./PDF/en/CV - Proof of Soft Skills - Miguel Evangelista EN.pdf",
+  },
+  es: {
+    resume: "./PDF/es/Miguel Evangelista desarrollador Front end.pdf",
+    noCountry: "./PDF/es/CV - Proof of Soft Skills - Miguel Evangelista ES.pdf",
+  },
+};
+
+const AVATAR_SRC = {
+  default: "/images/avatar1.png",
+  hover: "/images/hover-avatar.png",
+};
+
+const SOCIAL_LINKS = [
+  {
+    href: "https://github.com/Miguelaeb",
+    icon: "fa-github",
+    label: "GitHub Profile",
+  },
+  {
+    href: "https://twitter.com/MiguelEvan56212",
+    icon: "fa-twitter",
+    label: "Twitter Profile",
+  },
+  {
+    href: "https://www.linkedin.com/in/miguel-evangelista-8458b9150/",
+    icon: "fa-linkedin-in",
+    label: "LinkedIn Profile",
+  },
+  {
+    href: "https://instagram.com/miguel_aeb?igshid=NTc4MTIwNjQ2YQ==",
+    icon: "fa-instagram",
+    label: "Instagram Profile",
+  },
+];
 
 export default function Header() {
   const [isHovered, setIsHovered] = useState(false);
   const { t } = useTranslation();
 
-  const handleMouseOver = () => setIsHovered(true);
-  const handleMouseOut = () => setIsHovered(false);
+  const [pdfUrls, setPdfUrls] = useState(PDF_URLS[i18n.language]);
 
-  // Obtiene la URL correcta del PDF según el idioma actual
-  const PDF_URL = i18n.language === "en" ? PDF_URL_EN : PDF_URL_ES;
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setPdfUrls(PDF_URLS[i18n.language]);
+    };
 
-  const handleDownloadClick = () => window.open(PDF_URL, "_blank");
+    i18n.on("languageChanged", handleLanguageChange);
+    return () => {
+      i18n.off("languageChanged", handleLanguageChange);
+    };
+  }, []);
 
-  const avatarSrc = isHovered
-    ? "/images/hover-avatar.png"
-    : "/images/avatar1.png";
+  const avatarSrc = isHovered ? AVATAR_SRC.hover : AVATAR_SRC.default;
   const avatarClass = classNames("avatar-1-img w-full", { hovered: isHovered });
+
+  const handleDownload = (url) => () => window.open(url, "_blank");
 
   return (
     <header
@@ -33,8 +74,8 @@ export default function Header() {
           src={avatarSrc}
           alt="avatar-1"
           className={avatarClass}
-          onMouseOver={handleMouseOver}
-          onMouseOut={handleMouseOut}
+          onMouseOver={() => setIsHovered(true)}
+          onMouseOut={() => setIsHovered(false)}
         />
       </div>
 
@@ -53,48 +94,33 @@ export default function Header() {
         </p>
 
         <div className="flex justify-center gap-4 mt-5 lg:justify-start">
-          <a
-            href="https://github.com/Miguelaeb"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub Profile"
-          >
-            <i className={"fa-brands fa-github headerIcon"}></i>
-          </a>
-          <a
-            href="https://twitter.com/MiguelEvan56212"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter Profile"
-          >
-            <i className="fa-brands fa-twitter headerIcon"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/miguel-evangelista-8458b9150/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn Profile"
-          >
-            <i className="fa-brands fa-linkedin-in headerIcon"></i>
-          </a>
-          <a
-            href="https://instagram.com/miguel_aeb?igshid=NTc4MTIwNjQ2YQ=="
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram Profile"
-          >
-            <i className="fa-brands fa-instagram headerIcon"></i>
-          </a>
+          {SOCIAL_LINKS.map(({ href, icon, label }) => (
+            <a
+              key={icon}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+            >
+              <i className={`fa-brands ${icon} headerIcon`}></i>
+            </a>
+          ))}
         </div>
 
-        <button
-          className={
-            "py-2 mt-6 w-full font-SourceSansPro font-semibold text-lg text-background-color rounded-md md:self-start md:w-[250px] lg:mt-24 xl:w-[300px] hover:scale-105 transition duration-300 ease-in-out bg-primaryRed dark:bg-[#3B82F6]"
-          }
-          onClick={handleDownloadClick}
-        >
-          {t("resumeButton")}
-        </button>
+        <div className="flex flex-col items-center justify-center gap-4 md:flex-row xl:justify-normal">
+          <button
+            className="py-2 mt-6 w-full font-SourceSansPro font-semibold text-lg text-background-color rounded-md md:self-start md:w-[250px] lg:mt-24 xl:w-[300px] hover:scale-105 transition duration-300 ease-in-out bg-primaryRed dark:bg-[#3B82F6]"
+            onClick={handleDownload(pdfUrls.resume)}
+          >
+            {t("resumeButton")}
+          </button>
+          <button
+            className="py-2 mt-6 w-full font-SourceSansPro font-semibold text-lg text-primaryRed rounded-md md:self-start md:w-[250px] lg:mt-24 xl:w-[300px] hover:scale-105 transition duration-300 ease-in-out border-primaryRed border-2 dark:text-background-color dark:border-background-color"
+            onClick={handleDownload(pdfUrls.noCountry)}
+          >
+            {t("noCountryButton")}
+          </button>
+        </div>
       </div>
       <div id="projects"></div>
     </header>

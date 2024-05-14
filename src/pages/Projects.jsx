@@ -2,51 +2,12 @@ import { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-
-// Project data
-const projects = [
-  {
-    title: "Entertainment Web App",
-    image: "./images/entertainment-web-app.png",
-    githubLink: "https://github.com/Miguelaeb/AluraFlix",
-    liveLink: "https://alura-flix-beige.vercel.app/",
-  },
-  {
-    title: "Blogr Landing Page",
-    image: "./images/blogr_project.png",
-    githubLink: "https://github.com/Miguelaeb/blogr-landing-page",
-    liveLink: "https://blogr-landing-page-toyy.onrender.com/",
-  },
-  {
-    title: "AluraGeek",
-    image: "./images/AluraGeek__preview.png",
-    githubLink: "https://github.com/Miguelaeb/aluraGeek",
-    liveLink:
-      "https://alura-geek-gamma-ivory.vercel.app/?vercelToolbarCode=xGM-LFUfcR1CoUo",
-  },
-  {
-    title: "Portfolio",
-    image: "./images/portafolio.png",
-    githubLink: "https://github.com/Miguelaeb/portfolio",
-    liveLink: "https://www.migueldev.com/",
-  },
-
-  {
-    title: "Nubes de algodon",
-    image: "./images/infante_project.png",
-    githubLink: "https://github.com/FedeSabi/proyecto-Jardin-de-Infantes",
-    liveLink: "https://proyecto-jardin-de-infante.vercel.app/",
-  },
-];
+import projects from "../projectData";
 
 // ProjectCard component
 const ProjectCard = ({ title, image, githubLink, liveLink }) => (
   <div>
-    <a
-      href={liveLink}
-      target="_blank"
-      rel="noreferrer"
-    >
+    <a href={liveLink} target="_blank" rel="noreferrer">
       <img
         className="object-center w-full mb-4 shadow-md cursor-pointer lg:ease-in-out lg:duration-300 lg:transition lg:h-48 md:h-36 rounded-xl lg:hover:scale-110"
         src={image}
@@ -60,11 +21,7 @@ const ProjectCard = ({ title, image, githubLink, liveLink }) => (
       </p>
 
       <div className="flex gap-8">
-        <a
-          href={githubLink}
-          target="_blank"
-          rel="noreferrer"
-        >
+        <a href={githubLink} target="_blank" rel="noreferrer">
           <i className="text-xl fa-brands fa-github hover:text-portfolio-primary-color-red hover:text-primaryRed dark:text-white dark:hover:text-[#3B82F6]"></i>
         </a>
       </div>
@@ -97,10 +54,7 @@ export default function Projects() {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M4.5 1L1.5 4L4.5 7"
-              stroke="current"
-            />
+            <path d="M4.5 1L1.5 4L4.5 7" stroke="current" />
           </svg>
           <span className="font-semibold font-SourceSansPro font dark:text-white">
             {t("homeProjectButtonm")}
@@ -115,10 +69,7 @@ export default function Projects() {
       <div className="relative items-center w-full mt-14">
         <div className="grid w-full grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, index) => (
-            <ProjectCard
-              key={index}
-              {...project}
-            />
+            <ProjectCard key={index} {...project} />
           ))}
         </div>
       </div>
