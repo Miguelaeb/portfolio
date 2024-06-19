@@ -31,7 +31,7 @@ const SOCIAL_LINKS = [
     label: "Twitter Profile",
   },
   {
-    href: "https://www.linkedin.com/in/miguel-evangelista-8458b9150/",
+    href: "https://www.linkedin.com/in/miguelaer/",
     icon: "fa-linkedin-in",
     label: "LinkedIn Profile",
   },
