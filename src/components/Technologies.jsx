@@ -29,7 +29,13 @@ export default function Technologies() {
       altText: "JavaScript",
       text: "JavaScript",
     },
+    {
+      imageSrc: "./images/typescript.svg",
+      altText: "TypeScript",
+      text: "TypeScript",
+    },
     { imageSrc: "./images/react_logo.png", altText: "React", text: "React JS" },
+    { imageSrc: "./images/next-js.svg", altText: "Next Js", text: "Next JS" },
     { imageSrc: "./images/vite__logo.png", altText: "Vite", text: "Vite" },
     {
       imageSrc: "./images/tailwind_logo.png",

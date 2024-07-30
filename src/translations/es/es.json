@@ -25,7 +25,7 @@
 
   "aboutTitle": "Sobre mí.",
   "aboutDescription1": "Soy un desarrollador front-end que actualmente reside en Santo Domingo, República Dominicana.",
-  "aboutDescription2": "Me especializo en crear aplicaciones web e interfaces de usuario que no solo son visualmente atractivas sino también fáciles de usar y navegar. Mi experiencia incluye HTML, CSS, JavaScript, frameworks como Tailwind CSS, Bootstrap y Material UI, y bibliotecas como React JS. Me apasiona crear diseños receptivos y accesibles que funcionen sin problemas en diferentes dispositivos y navegadores.",
+  "aboutDescription2": "Me especializo en la creación de aplicaciones web e interfaces de usuario que no solo son visualmente atractivas, sino también fáciles de usar y navegar. Mi experiencia incluye HTML, CSS, JavaScript, TypeScript, frameworks como Tailwind CSS, Bootstrap y Material UI, y bibliotecas como React JS y Next.js. Soy apasionado de crear diseños responsivos y accesibles que funcionen sin problemas en diferentes dispositivos y navegadores.",
 
   "technologiesTitle": "Tecnologias.",
   "technologiesTools": "Herramientas",
