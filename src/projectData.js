@@ -26,6 +26,13 @@ const projects = [
       githubLink: "https://github.com/FedeSabi/proyecto-Jardin-de-Infantes",
       liveLink: "https://proyecto-jardin-de-infante.vercel.app/",
     },
+
+    {
+      title: "Build",
+      image: "./images/build_project.png",
+      githubLink: "https://github.com/Miguelaeb/build",
+      liveLink: "https://build-pi-five.vercel.app/",
+    },
   ];
   
   export default projects;
