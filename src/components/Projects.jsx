@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import projects from "../projectData";
@@ -14,7 +14,7 @@ const ProjectCard = ({ title, image, githubLink, liveLink }) => (
       aria-label={`View live project: ${title}`}
     >
       <img
-        className="object-center w-full mb-4 shadow-md cursor-pointer lg:ease-in-out lg:duration-300 lg:transition lg:h-48 md:h-36 rounded-xl lg:hover:scale-110"
+        className="object-center w-full mb-4 shadow-md cursor-pointer lg:transition-transform lg:duration-300 lg:h-48 md:h-36 rounded-xl lg:hover:scale-110"
         src={image}
         alt={title}
       />
@@ -32,7 +32,7 @@ const ProjectCard = ({ title, image, githubLink, liveLink }) => (
           rel="noreferrer"
           aria-label={`View GitHub repository for ${title}`}
         >
-          <i className="text-xl fa-brands fa-github hover:text-portfolio-primary-color-red hover:text-primaryRed dark:text-white dark:hover:text-[#3B82F6]"></i>
+          <i className="text-xl fa-brands fa-github hover:text-portfolio-primary-color-red dark:text-white dark:hover:text-[#3B82F6]"></i>
         </a>
       </div>
     </div>
@@ -53,17 +53,17 @@ export default function Projects() {
     window.innerWidth < 768 ? 4 : 6
   );
 
-  useEffect(() => {
-    const handleResize = () => {
-      setProjectsToShow(window.innerWidth < 768 ? 4 : 6);
-    };
+  const handleResize = useCallback(() => {
+    setProjectsToShow(window.innerWidth < 768 ? 4 : 6);
+  }, []);
 
+  useEffect(() => {
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [handleResize]);
 
   return (
     <section className="mt-20">
@@ -81,9 +81,7 @@ export default function Projects() {
 
       <Link to="/projects">
         <button
-          className={
-            "py-2 mt-6 w-full font-SourceSansPro font-semibold text-lg text-background-color rounded-md md:self-start md:w-[250px] lg:mt-24 xl:w-[300px] hover:scale-105 transition duration-300 ease-in-out bg-primaryRed dark:bg-[#3B82F6]"
-          }
+          className={`py-2 mt-6 w-full font-SourceSansPro font-semibold text-lg text-background-color rounded-md md:self-start md:w-[250px] lg:mt-24 xl:w-[300px] hover:scale-105 transition duration-300 ease-in-out bg-primaryRed dark:bg-[#3B82F6]`}
         >
           {t("projectsButton")}
         </button>
