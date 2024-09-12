@@ -40,6 +40,13 @@ const projects = [
     liveLink: "https://build-pi-five.vercel.app/",
 
   },
+  {
+    title: "Start",
+    image: "./images/start_project.png",
+    githubLink: "https://github.com/Miguelaeb/start",
+    liveLink: "https://start-beta.vercel.app/",
+
+  },
 ];
 
 export default projects;
