@@ -33,11 +33,7 @@ const educationData = [
 ];
 
 const EducationItem = ({ name, link, logo, program, year }) => (
-  <a
-    href={link}
-    target="_blank"
-    rel="noreferrer"
-  >
+  <a href={link} target="_blank" rel="noreferrer">
     <img
       className="object-scale-down object-center mx-auto mb-4 lg:ease-in-out lg:duration-300 lg:transition lg:h-48 md:h-36 rounded-xl lg:hover:scale-110"
       src={logo}
@@ -69,10 +65,7 @@ export default function Education() {
       <div className="relative items-center w-full mt-14">
         <div className="grid w-full grid-cols-1 gap-12 dark:text-white md:grid-cols-2 xl:grid-cols-3">
           {educationData.map((edu, index) => (
-            <EducationItem
-              key={index}
-              {...edu}
-            />
+            <EducationItem key={index} {...edu} />
           ))}
         </div>
       </div>
